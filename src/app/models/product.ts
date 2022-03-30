@@ -23,6 +23,12 @@ export interface ICategory {
     category_name: string
 }
 
+
+export interface ICategory {
+    category_id: number,
+    category_name: string
+}
+
 export interface IOrderTotal{
     mrp:number,
     total_amount:number

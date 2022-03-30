@@ -15,7 +15,7 @@ import { PurchaseService } from 'src/app/service/purchase.service';
   templateUrl: './laptops.component.html',
   styleUrls: ['./laptops.component.scss']
 })
-export class LaptopsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
   products: IProduct[] = [];
   user!: IUser;

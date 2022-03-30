@@ -1,3 +1,4 @@
+import { ProductService } from 'src/app/service/product.service';
 import { ICart } from './../../../models/purchase';
 import { PurchaseService } from 'src/app/service/purchase.service';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { SharedService } from '../../../shared/shared.service';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
+import { ICategory } from 'src/app/models/product';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +29,7 @@ export class HeaderComponent implements OnInit {
   cartItems!: ICart[];
   address!: IAddress[];
   defaultAddress!: IAddress[];
+  categories!:ICategory[];
   showProfilePopover: boolean = false;
   private userStatusSubscribtion = new Subscription();
   private userSubscribtion = new Subscription();
@@ -41,10 +44,11 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private purchaseService: PurchaseService,
+    private productService: ProductService,
     private router: Router) { }
 
   async ngOnInit(): Promise<void> {
-
+    this.categories = await this.productService.getCategory().toPromise();
     this.cartRefreshSubscribtion = this.purchaseService.refreshNotification.subscribe(() => {
       this.cartItem();
     })
@@ -124,8 +128,13 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  onClickProducts( categoryId: number) {
+    this.productService.sendCategoryId(categoryId);
+    this.sharedService.clickProducts();
+  }
+
   onClickLaptops() {
-    this.sharedService.clickLaptops();
+    this.sharedService.clickProducts();
   }
 
   onClickCart() {

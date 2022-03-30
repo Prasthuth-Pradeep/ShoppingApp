@@ -8,7 +8,7 @@ import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
 import { SignInComponent } from './component/auth/sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
-import { LaptopsComponent } from './component/home/laptops/laptops.component';
+import { ProductsComponent } from './component/home/laptops/laptops.component';
 import { HeaderComponent } from './component/home/header/header.component';
 import { LaptopDetailsComponent } from './component/home/laptops/laptop-details/laptop-details.component';
 import { ReviewsComponent } from './component/home/reviews/reviews.component';
@@ -44,7 +44,7 @@ import { ShowroomComponent } from './component/home/showroom/showroom.component'
     SignUpComponent,
     SignInComponent,
     HomeComponent,
-    LaptopsComponent,
+    ProductsComponent,
     HeaderComponent,
     LaptopDetailsComponent,
     ReviewsComponent,

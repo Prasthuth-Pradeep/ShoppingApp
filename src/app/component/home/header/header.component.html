@@ -1,51 +1,58 @@
 <div class="container">
-<!-- BRAND NAME -->
+    <!-- BRAND NAME -->
     <nav [ngClass]="navbar">
         <div class="brand-name" (click)="onHomePage()">
             <span class="name">Shopping App</span>
         </div>
-<!-- ADDRESS -->
+        <!-- ADDRESS -->
         <div class="nav-links">
             <a class="link address" (click)="onAddressPopover()" *ngIf="!userStatus">Address</a>
             <a class="link address" (click)="onAddressPopover()" *ngIf="address?.length == 0 && userStatus ">Address</a>
-            <div  *ngFor="let data of defaultAddress;">
-                <a class="link address"  (click)="onAddressPopover()" *ngIf="userStatus && address?.length != 0 && data?.user_id == null">Address</a>
+            <div *ngFor="let data of defaultAddress;">
+                <a class="link address" (click)="onAddressPopover()"
+                    *ngIf="userStatus && address?.length != 0 && data?.user_id == null">Address</a>
                 <div *ngIf="userStatus && address?.length != 0 && data?.user_id != null">
-                    <div class="address-name" (click)="onAddressPopover()" >
+                    <div class="address-name" (click)="onAddressPopover()">
                         <span>Deliver to: {{ data.full_name }}</span>
                         <span>{{ data.area }} {{ data.pin_code }}</span>
                     </div>
                 </div>
             </div>
         </div>
-<!-- SEARCHBAR -->
+        <!-- SEARCHBAR -->
         <div class="searchbar">
             <div class="dropdown">
                 <button class="categories" #dropdownRef>Categories <p>&raquo;</p></button>
-        <!-- DROPDOWN -->
+                <!-- DROPDOWN -->
                 <div class="dropdown-content" *ngIf="dropdown" #dropdownRef>
+                    <div *ngFor="let data of categories">
+                        <a class="dropdown-link" (click)="onClickProducts(data.category_id)">{{ data.category_name
+                            }}</a>
+                    </div>
+                </div>
+                <!-- <div class="dropdown-content" *ngIf="dropdown" #dropdownRef>
                     <a href="#" class="dropdown-link">Mobiles</a>
                     <a (click)="onClickLaptops()" class="dropdown-link">Laptops</a>
                     <a href="#" class="dropdown-link">Fashion</a>
-                </div>
+                </div> -->
             </div>
-        <!-- SEARCH INPUT -->
+            <!-- SEARCH INPUT -->
             <input type="text" class="search-input" placeholder="Brands, products">
             <a class="search-btn">Search</a>
         </div>
-<!-- SIGN IN -->
+        <!-- SIGN IN -->
         <div class="nav-links">
             <a class="link" routerLink="/sign-in" *ngIf="!userStatus">Sign In</a>
             <div *ngIf="userDetails">
-                <div class="profile" *ngFor="let user of userDetails;" (click)="onUserProfile()" >
+                <div class="profile" *ngFor="let user of userDetails;" (click)="onUserProfile()">
                     <span class="name">Hello, {{user.first_name}}</span>
                     <span class="account">Account & lists</span>
                 </div>
             </div>
-<!-- ORDER -->
+            <!-- ORDER -->
             <a class="link" routerLink="/sign-in" *ngIf="!userStatus">Orders</a>
             <a class="link" (click)="onClickOrder()" *ngIf="userStatus">Orders</a>
-<!-- CART -->
+            <!-- CART -->
             <a class="link" (click)="onClickCart()" *ngIf="!userStatus">Cart</a>
             <a class="link" (click)="onClickCart()" *ngIf="userStatus">
                 Cart (<span class="cart">{{ cartItems?.length ? cartItems?.length : 0 }}</span>)

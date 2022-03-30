@@ -107,7 +107,7 @@ export class SharedService {
   get isLaptop():Observable<any>{
     return this.isClickLaptop.asObservable();
   }
-  public clickLaptops(){
+  public clickProducts(){
     this.isClickLaptop.next();
   }
 

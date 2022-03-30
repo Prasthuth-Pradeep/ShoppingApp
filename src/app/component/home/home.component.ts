@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
     this.clickEventLaptopsSubscription =
       this.sharedService.isLaptop.subscribe(() => {
-        this.onLaptops();
+        this.onProducts();
       });
 
     this.clickEventUserProfileSubscription =
@@ -72,9 +72,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  onLaptops() {
+  onProducts() {
     this.sharedService.sendHomeClassName(this.homeClass);
-    this.router.navigate(['/home/laptops']);
+    this.router.navigate(['/home/products']);
   }
 
   onCart() {
