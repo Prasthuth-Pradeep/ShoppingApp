@@ -1,0 +1,228 @@
+@import "../../../../assets/SCSS/variables";
+
+.container {
+  height: 92.3vh;
+  width: 100vw;
+  background-color: $tertiary-border-color;
+  .button-container {
+    background-image: url("../../../../assets/whallpapers/cart.png");
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: 85%;
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $tertiary;
+    .title {
+      font-size: $font-second-heading * 2;
+      font-weight: $font-bold;
+      color: $tertiary-border-color;
+      margin: $tertiary-space-unit * 5 $tertiary-space-unit * 2 $primary-space-unit $tertiary-space-unit * 2 ;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: $primary-space-unit * 2;
+      margin: $secondary-space-unit $tertiary-space-unit * 2 $primary-space-unit $tertiary-space-unit * 2 ;
+      button {
+        cursor: pointer;
+        display: inline-block;
+        padding: $primary-space-unit;
+        font-size: $font-primary;
+        font-weight: $font-semi-bold;
+        border-radius: $primary-space-unit;
+        border: none;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+      }
+      button:hover {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .sign-in {
+        color: $tertiary;
+        background-color: $primary-background;
+      }
+      .sign-up {
+        background-color: $tertiary;
+        color: $primary-background;
+      }
+    }
+  }
+}
+
+.user-cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: $tertiary-border-color;
+  padding-bottom: $secondary-space-unit * 4;
+  .set-title {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .addressbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: $primary-space-unit;
+      background-color:$primary-background;
+      .address {
+        font-size: $font-secondary;
+        font-weight: $font-light;
+      }
+      .change-address {
+        cursor: pointer;
+        padding: $primary-space-unit - 5;
+        border-radius: $primary-space-unit - 5;
+        font-size: $font-tertiary;
+      }
+      .change-address:hover {
+        text-decoration: underline;
+      }
+    }
+    .total-amount {
+      padding: $secondary-space-unit * 2 0px $primary-space-unit * 2 0px;
+      .total {
+        font-size: $font-second-heading;
+      }
+    }
+    .button-container {
+      .proceed {
+        cursor: pointer;
+        display: inline-block;
+        font-size: $font-title;
+        font-weight: $font-semi-bold;
+        color: $tertiary-border-color;
+        border-radius: $primary-space-unit;
+        padding: $primary-space-unit $secondary-space-unit * 3
+          $primary-space-unit $secondary-space-unit * 3;
+        border: none;
+        background-color: $secondary;
+      }
+    }
+  }
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: $secondary-space-unit* 2;
+    .cart-card {
+      display: flex;
+      flex-direction: column;
+      margin-top: $secondary-space-unit * 2;
+      padding: $primary-space-unit;
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+      .set-one {
+        display: flex;
+        .img-container {
+          .img {
+            height: $tertiary-space-unit * 9;
+            width: $tertiary-space-unit * 12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              height: 180px;
+              width: 230px;
+            }
+          }
+        }
+        .details-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          padding: $primary-space-unit;
+          width: 300px;
+          .name-container {
+            padding: $primary-space-unit;
+            .name {
+              font-size: $font-second-heading;
+            }
+          }
+          .rate-container {
+            padding: $primary-space-unit;
+            .rate {
+              font-size: $font-title;
+            }
+          }
+          .stock-details-container {
+            padding: $primary-space-unit;
+            .stock-status {
+              font-size: $font-title;
+            }
+            .in-stock {
+              color: $color-success;
+            }
+            .one-left {
+              color: $color-error;
+            }
+            .out-of-stock {
+              color: $color-warning;
+            }
+          }
+        }
+      }
+      .set-two {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $primary-space-unit * 2 $secondary-space-unit * 2 0px
+          $secondary-space-unit * 2;
+        .quantity-button-container {
+          .quentity-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: $primary-space-unit;
+            border: 1px solid $tertiary-light-shade;
+            border-radius: $primary-space-unit - 5;
+            .add,
+            .remove {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: $primary-space-unit - 5 $primary-space-unit * 2
+                $primary-space-unit - 5 $primary-space-unit * 2;
+              border: none;
+              background-color: $secondary;
+              font-size: $font-second-heading;
+            }
+            .quantity-number {
+              padding: 0px $tertiary-space-unit * 2 0px $tertiary-space-unit * 2;
+            }
+          }
+        }
+        .action-container {
+          display: flex;
+          align-items: center;
+          gap: $primary-space-unit * 2;
+          button {
+            cursor: pointer;
+            display: inline-block;
+            align-items: center;
+            padding: $primary-space-unit;
+            border: 1px solid $tertiary-light-shade;
+            background-color: $secondary-background;
+            border-radius: $primary-space-unit - 5;
+          }
+          .buy-now{
+            background-color: $tertiary;
+            color: $tertiary-font-color;
+          }
+        }
+      }
+    }
+  }
+}

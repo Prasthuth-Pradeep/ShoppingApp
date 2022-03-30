@@ -1,0 +1,285 @@
+@import "../../../../../assets/SCSS/variables";
+.container {
+  height: 92vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: $primary-space-unit;
+  padding: $tertiary-space-unit * 2 $tertiary-space-unit * 6
+    $tertiary-space-unit * 4 $tertiary-space-unit * 6;
+  .nav-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: $primary-space-unit;
+    margin-bottom: $primary-space-unit * 2;
+    .title {
+      width: 100%;
+      display: flex;
+      gap: $primary-space-unit;
+      text-transform: capitalize;
+      font-size: $font-primary;
+      font-weight: $font-light;
+      margin-bottom: $primary-space-unit * 2;
+      .account {
+        color: $primary-font-color;
+      }
+      .account:hover {
+        cursor: pointer;
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .your-order {
+        color: $tertiary;
+      }
+    }
+
+    .order-title-container {
+      width: 100%;
+      display: flex;
+      margin-bottom: $secondary-space-unit;
+      .order-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: $font-second-heading * 2;
+        font-weight: $font-semi-bold;
+        color: $primary-font-color;
+      }
+      .search-container {
+        display: flex;
+        align-items: center;
+        gap: $primary-space-unit;
+        .search-input,
+        .search-button {
+          width: $tertiary-space-unit * 9;
+          height: $tertiary-space-unit + 5;
+          padding: 0 $primary-space-unit 0 $primary-space-unit;
+          display: flex;
+          align-items: center;
+          font-size: $font-tertiary;
+          border: 1px solid $grey;
+          border-radius: $primary-space-unit;
+          .search-input::placeholder {
+            color: $grey;
+            font-size: $font-tertiary;
+          }
+        }
+        .search-button {
+          width: fit-content;
+          background-color: $primary;
+          color: $tertiary-font-color;
+        }
+      }
+    }
+  }
+  .sub-nav {
+    .nav-items-contaner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $tertiary-space-unit;
+      padding: 0 0 0 $primary-space-unit;
+      border-bottom: 1px solid $grey;
+      .item {
+        cursor: pointer;
+        font-size: $font-primary;
+        font-weight: $font-semi-bold;
+        padding: 0 0 $primary-space-unit $primary-space-unit;
+        border-bottom: 4px solid transparent;
+      }
+      .item:hover {
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .active {
+        color: $tertiary;
+        padding: 0 0 $primary-space-unit $primary-space-unit;
+        border-bottom: 4px solid $tertiary;
+      }
+    }
+  }
+  .content-container {
+    width: 100%;
+    .date-container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: $secondary-space-unit;
+      padding-right: $secondary-space-unit;
+      margin-bottom: $primary-space-unit;
+      .set-1 {
+        display: flex;
+        justify-content: flex-start;
+        gap: $primary-space-unit;
+        .item {
+          font-size: $font-secondary;
+          font-weight: $font-regular;
+          color: $primary-font-color;
+        }
+      }
+      .invoice {
+        cursor: pointer;
+        font-size: $font-title;
+        font-weight: $font-regular;
+        color: $color-info;
+      }
+    }
+    .shopping-details-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: $primary-space-unit * 2;
+      padding: $secondary-space-unit;
+      .card {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid $grey;
+        border-radius: $primary-space-unit - 5;
+        padding: $primary-space-unit * 2;
+        .address,
+        .payment,
+        .summary {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: $primary-space-unit - 4;
+          .title {
+            font-size: $font-title;
+            font-weight: $font-semi-bold;
+            color: $primary-font-color;
+            margin-bottom: $primary-space-unit - 7;
+          }
+          .data {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            font-size: $font-primary;
+            color: $primary-font-color;
+          }
+          .total {
+            font-size: $font-title;
+            font-weight: $font-semi-bold;
+            color: $primary-font-color;
+            margin-top: $primary-space-unit - 7;
+          }
+        }
+        .address {
+          text-transform: uppercase;
+        }
+      }
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        gap: $primary-space-unit;
+        justify-content: flex-start;
+        border: 1px solid $grey;
+        border-radius: $primary-space-unit - 5;
+        padding: $primary-space-unit * 2;
+        .date {
+          font-size: $font-second-heading;
+          font-weight: $font-semi-bold;
+          color: $primary-font-color;
+        }
+        .arriving{
+          color: green;
+        }
+        .product-data {
+          display: flex;
+          justify-content: flex-start;
+          justify-content: space-between;
+          .image-data {
+            display: flex;
+            justify-content: flex-start;
+            gap: $primary-space-unit * 2;
+            .product-img-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: $primary-space-unit - 2;
+
+              position: relative;
+              .quantity {
+                width: $secondary-space-unit * 2;
+                height: $secondary-space-unit * 2;
+                border-radius: 50%;
+                border: 1px solid $grey;
+                background-color: $grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: $primary-space-unit - 5;
+
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                opacity: 100%;
+                .data {
+                  font-size: $font-tertiary;
+                  font-weight: $font-bold;
+                }
+              }
+              img {
+                height: 150px;
+                width: auto;
+              }
+            }
+            .product-details {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              gap: $secondary-space-unit;
+              padding: $primary-space-unit;
+              .name {
+                font-size: $font-title;
+                font-weight: $font-semi-bold;
+                color: $primary-font-color;
+              }
+              .more {
+                display: flex;
+                flex-direction: column;
+                gap: $primary-space-unit - 5;
+                .return {
+                  font-size: $font-secondary;
+                  font-weight: $font-light;
+                  color: $primary-border-color;
+                }
+                .prise {
+                  font-size: $font-title;
+                  font-weight: $font-regular;
+                  color: $primary-border-color;
+                }
+                .buy-again {
+                  cursor: pointer;
+                  margin-top: $primary-space-unit;
+                  width: fit-content;
+                  padding: $primary-space-unit - 3;
+                  border-radius: $primary-space-unit;
+                  font-size: $font-secondary;
+                  font-weight: $font-regular;
+                  color: $primary-border-color;
+                  background-color: $secondary;
+                  border: 1px solid $grey;
+                }
+              }
+            }
+          }
+          .review {
+            button {
+              cursor: pointer;
+              width: $tertiary-space-unit * 13;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: $primary-space-unit - 3;
+              font-size: $font-secondary;
+              background-color: $tertiary-border-color;
+              border: 1px solid $grey;
+              border-radius: $primary-space-unit;
+              box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

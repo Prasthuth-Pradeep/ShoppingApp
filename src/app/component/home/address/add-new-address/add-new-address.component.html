@@ -1,0 +1,70 @@
+<div class="container">
+    <nav class="nav-titles">
+        <div class="title">
+            <span class="account" (click)="onUserProfile()">Your Account</span>
+            <p>&#62;</p>
+        </div>
+        <div class="title">
+            <span class="address" (click)="onAddress()">Your Address</span>
+            <p>&#62;</p>
+        </div>
+        <div class="title">
+            <span class="new-address">New Address</span>
+        </div>
+    </nav>
+    <div class="address-title-container">
+        <span class="address-title">Add a new addresss</span>
+    </div>
+
+    <div class="address-container">
+        <form class="adress-form" [formGroup]="addressForm">
+            <div class="set">
+                <div class="set">
+                    <label>Full name (First and Last name)</label>
+                    <input type="text" placeholder="Full name" class="input name" formControlName="fullname">
+                </div>
+                <div class="set">
+                    <label>Mobile Number</label>
+                    <input type="text" placeholder="Mobile number" class="input mobile" formControlName="mobilenumber">
+                </div>
+                <div class="set">
+                    <label>Pin Code</label>
+                    <input type="text" placeholder="Pin code" class="input pincode" formControlName="pincode">
+                </div>
+                <div class="set">
+                    <label>Flat, House no., Building, Company, Apartment</label>
+                    <input type="text" placeholder="Flat, House no, Building, Company, Apartment" class="input house"
+                        formControlName="residencyname">
+                </div>
+                <div class="set">
+                    <label>Area, Colony, Street, Sector, VIllage</label>
+                    <input type="text" placeholder="Area, Colony, Street, Sector, VIllage" class="input area"
+                        formControlName="area">
+                </div>
+            </div>
+            <div class="set">
+                <div class="set">
+
+                    <label>Landmark</label>
+                    <input type="text" placeholder="eg. near Appollo Hospital" class="input landmark"
+                        formControlName="landmark">
+                </div>
+                <div class="set">
+                    <label>Town, City</label>
+                    <input type="text" placeholder="Town, City" class="input town" formControlName="city">
+                </div>
+                <div class="set">
+                    <label>State/Province/Region</label>
+                    <input type="text" placeholder="State" class="input state" formControlName="state">
+                </div>
+                <div class="set">
+                    <label>Country/Region</label>
+                    <input type="text" placeholder="Country" class="input country" formControlName="country">
+                </div>
+            </div>
+        </form>
+        <div class="button-container">
+            <button class="add-btn" (click)="onAddAddress(addressForm.value)">Add address</button>
+        </div>
+    </div>
+</div>

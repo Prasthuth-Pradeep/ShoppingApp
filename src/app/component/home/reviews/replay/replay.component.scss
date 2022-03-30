@@ -1,0 +1,32 @@
+@import "../../../../../assets/SCSS/variables";
+
+.replay-container {
+  padding: $primary-space-unit;
+  padding-left: $tertiary-space-unit * 4;
+  border-top: 1px solid $tertiary-background;
+  border-bottom: 1px solid $tertiary-background;
+  margin-bottom: $primary-space-unit;
+  .name-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $primary-space-unit;
+    width: 100%;
+    background-color: $tertiary-background;
+    padding: $primary-space-unit - 5;
+    .avatar {
+      width: auto;
+      height: $tertiary-space-unit;
+    }
+    .user-name {
+      font-size: $font-primary;
+    }
+  }
+  .container-alert {
+    padding: $primary-space-unit;
+    padding-left: $tertiary-space-unit * 4;
+    border-top: 1px solid $tertiary-background;
+    border-bottom: 1px solid $tertiary-background;
+    margin-bottom: $primary-space-unit;
+  }
+}

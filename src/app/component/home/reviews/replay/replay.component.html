@@ -1,0 +1,12 @@
+<div class="container" *ngFor="let replay of replays">
+    <div class="replay-container" *ngIf="replay.review_id === reviewId">
+        <div class="name-container">
+            <img src="assets/icons/avatar.png" alt="" class="avatar">
+            <span class="user-name">{{ replay.first_name }}</span>
+        </div>
+        <span class="content">&nbsp;&nbsp;&nbsp;{{ replay.replay_content }}</span>
+    </div>
+</div>
+<!-- <div class="container-alert" *ngIf="replays.length === 0">
+    <span class="alert">No replays to display</span>
+</div> -->

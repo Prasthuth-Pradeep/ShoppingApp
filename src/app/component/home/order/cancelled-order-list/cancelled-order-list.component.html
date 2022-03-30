@@ -1,0 +1,51 @@
+<div class="order-card-container" *ngFor="let data of cancelledOrders;">
+    <div class="order-card" >
+        <div class="order-header">
+            <div class="header-content-container">
+                <div class="order-date">
+                    <span class="data data-1">ORDER PLACED</span>
+                    <span class="data">{{ data.order_date | date}}</span>
+                </div>
+                <div class="order-total">
+                    <span class="data data-1">Total</span>
+                    <span class="data">{{ data.order_total }}</span>
+                </div>
+                <div class="order-address">
+                    <span class="data data-1">Ship to:</span>
+                    <span class="data address-popover" (mouseover)="addressPopover(data.order_id)"
+                        (mouseout)="addressPopoverOut()">{{ data.full_name }}
+                        <div class="popover" *ngIf="addressHover && data.order_id === popupOrderId">
+                            <span class="data name">{{ data.full_name }}</span>
+                            <span class="data">{{ data.residency_name }}</span>
+                            <span class="data">{{ data.area }}</span>
+                            <span class="data">{{ data.city }}, {{ data.state }} {{ data.pin_code }}</span>
+                            <span class="data">{{ data.country }}</span>
+                            <span class="data">Phone: {{ data.mobile_number }}</span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="order-details-container">
+                <span class="order-id">ORDER #{{ data.order_id }}</span>
+            </div>
+        </div>
+        <div class="order-content">
+            <div class="set-1">
+                <span class="date arrived">Cancelled</span>
+            </div>
+            <div class="set-2">
+                <div class="set-1">
+                    <div class="product-img-container">
+                        <img [src]="data.product_photo_url" alt="product.png" class="product-image">
+                    </div>
+                    <div class="product-details-container">
+                        <span class="name">{{ data.product_name }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="nothing-to-display" *ngIf="cancelledOrders?.length == 0">
+  <span>Nothing to display</span>
+</div>

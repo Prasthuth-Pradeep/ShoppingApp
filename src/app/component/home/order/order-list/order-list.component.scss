@@ -1,0 +1,294 @@
+@import "../../../../../assets/SCSS/variables";
+
+.order-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: $primary-space-unit * 2;
+  .order-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 1px solid $grey;
+    border-radius: $primary-space-unit;
+    .order-header {
+      width: 100%;
+      padding: $primary-space-unit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $grey;
+      background-color: $primary-background;
+      .header-content-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: $primary-space-unit * 2;
+        .order-date,
+        .order-total,
+        .order-address {
+          padding: $primary-space-unit;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: $primary-space-unit - 4;
+          .data {
+            color: $primary-font-color;
+            font-size: $font-primary;
+          }
+          .data-1 {
+            font-size: $font-secondary;
+          }
+          .address-popover {
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: $font-semi-bold;
+
+            position: relative;
+            .popover {
+              width: 300px;
+              display: flex;
+              flex-direction: column;
+              gap: $primary-space-unit - 7;
+              padding: $primary-space-unit;
+              background-color: $tertiary-border-color;
+              border: 1px solid $grey;
+              box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+
+              position: absolute;
+              left: 0;
+              top: calc(100% + 10px);
+              opacity: 100%;
+              .data {
+                font-size: $font-secondary;
+                color: $primary-font-color;
+                font-weight: $font-light;
+              }
+              .name {
+                font-weight: $font-semi-bold;
+                text-transform: uppercase;
+              }
+            }
+          }
+          .address-popover:hover {
+            color: $tertiary;
+            text-decoration: underline;
+          }
+        }
+      }
+      .order-details-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: $primary-space-unit - 4;
+        .order-id {
+          padding: 0 $primary-space-unit 0 $primary-space-unit;
+          font-size: $font-tertiary;
+        }
+        .billing-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          gap: $primary-space-unit - 5;
+          .details {
+            cursor: pointer;
+            padding: 0 $primary-space-unit 0 $primary-space-unit;
+            font-weight: $font-semi-bold;
+            font-size: $font-primary;
+          }
+          .details:hover {
+            color: $tertiary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .order-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      button {
+        cursor: pointer;
+        width: $tertiary-space-unit * 13;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $primary-space-unit - 3;
+        font-size: $font-secondary;
+        background-color: $tertiary-border-color;
+        border: 1px solid $grey;
+        border-radius: $primary-space-unit;
+        box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+      .set-1 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $primary-space-unit * 2;
+        .date {
+          font-size: $font-second-heading;
+          font-weight: $font-semi-bold;
+        }
+        .arriving {
+          color: green;
+        }
+      }
+      .set-2 {
+        width: 100%;
+        height: 210px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 1px solid $grey;
+        .set-1 {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          .product-img-container {
+            padding-left: $primary-space-unit * 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: $primary-space-unit - 2;
+
+            position: relative;
+            .quantity{
+               width: $secondary-space-unit * 2;
+               height:  $secondary-space-unit * 2;
+               border-radius: 50%;
+               border: 1px solid $grey;
+               background-color: $grey;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               padding: $primary-space-unit - 5;
+
+               position: absolute;
+               right: 10px;
+               bottom:10px ;
+               opacity: 100%;
+               .data{
+                 font-size: $font-tertiary;
+                 font-weight: $font-bold;
+               }
+            }
+
+            .product-image {
+              width: 200px;
+              height: auto;
+            }
+          }
+          .product-details-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: baseline;
+            gap: $primary-space-unit;
+            padding: $primary-space-unit * 2;
+            padding-left: $tertiary-space-unit * 2;
+            padding-top: 0px;
+            .name {
+              cursor: pointer;
+              text-transform: uppercase;
+              font-size: $font-primary;
+              font-weight: $font-semi-bold;
+            }
+            .name:hover {
+              color: $tertiary;
+              text-decoration: underline;
+            }
+            .buy-again {
+              width: fit-content;
+              padding: $primary-space-unit;
+              box-shadow: none;
+              background-color: $secondary;
+              color: $primary-border-color;
+            }
+            .buy-again:hover {
+              background-color: $secondary-dark-shade;
+            }
+          }
+        }
+        .set-2 {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding: $primary-space-unit * 2;
+          padding-top: 0px;
+          .seller-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: $primary-space-unit;
+          }
+        }
+      }
+      .set-3 {
+        padding: $primary-space-unit * 2;
+        .archive {
+          font-size: $font-primary;
+        }
+      }
+    }
+  }
+
+  .cancel-order-popover {
+    .cover {
+      position: fixed;
+      top: 0%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: $primary-space-unit - 5;
+      background-color: $tertiary-font-color;
+      height: fit-content;
+      max-width: 80%;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 600px;
+      .nav {
+        padding: $primary-space-unit * 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $grey;
+        border-bottom: 1px solid $grey;
+        .title,
+        .x {
+          font-size: $font-title;
+          font-weight: $font-bold;
+          color: $primary-font-color;
+        }
+        .x {
+          cursor: pointer;
+        }
+      }
+      .bg {
+        background-color: $tertiary-font-color;
+      }
+    }
+  }
+}

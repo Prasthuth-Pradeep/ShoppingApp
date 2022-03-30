@@ -1,0 +1,85 @@
+<div class="container">
+    <nav class="nav-titles">
+        <div class="title">
+            <span class="account" (click)="onUserProfile()">Your Account</span>
+            <p>&#62;</p>
+            <span class="account" (click)="onOrder()">Your Account</span>
+            <p>&#62;</p>
+            <span class="your-order">Order Details</span>
+        </div>
+        <div class="order-title-container">
+            <span class="order-title">Order Details</span>
+        </div>
+    </nav>
+    <div class="content-container" *ngFor="let data of ordersDetails">
+        <div class="date-container">
+            <div class="set-1">
+                <span class="item date">Ordered on {{ data.order_date | date }}</span>
+                <p>|</p>
+                <span class="item order-id">Order#{{ data.order_id }}</span>
+            </div>
+            <span class="invoice">Invoice</span>
+        </div>
+        <div class="shopping-details-container">
+            <div class="card">
+                <div class="address">
+                    <span class="title">Shipping Address</span>
+                    <span class="data">{{ data.full_name }}</span>
+                    <span class="data">{{ data.residency_name }}</span>
+                    <span class="data">{{ data.area }}</span>
+                    <span class="data">{{ data.city }}, {{ data.state }} {{ data.pin_code }}</span>
+                    <span class="data">{{ data.country }}</span>
+                </div>
+                <div class="payment">
+                    <span class="title">Payment Method</span>
+                    <span class="data">Cash on delivery</span>
+                </div>
+                <div class="summary">
+                    <span class="title">Order Summary</span>
+                    <span class="data">
+                        <p>Item(s) Subtotal</p>
+                        <p>:&nbsp;₹{{ data.order_total }}</p>
+                    </span>
+                    <span class="data">
+                        <p>Shipping</p>
+                        <p>:&nbsp;₹0.00</p>
+                    </span>
+                    <span class="data">
+                        <p>Total</p>
+                        <p>:&nbsp;₹{{ data.order_total }}</p>
+                    </span>
+                    <span class="data total">
+                        <p>Grand Total</p>
+                        <p>:&nbsp;₹{{ data.order_total }}</p>
+                    </span>
+                </div>
+            </div>
+            <div class="product-card">
+                <span class="date arriving" *ngIf="data.arriving_in > 0">Arriving in {{ data.arriving_in }} days</span>
+                <span class="date arriving" *ngIf="data.arriving_in === 0">Arriving today</span>
+                <span class="date arrived" *ngIf="data.arriving_in < 0 && data.arriving_in != 0">Delivered on {{ data.delivery_date | date }}</span>
+                <div class="product-data">
+                    <div class="image-data">
+                        <div class="product-img-container">
+                            <img [src]="data.product_photo_url" alt="product.png">
+                            <div class="quantity" *ngIf="data.product_quantity > 1">
+                                <span class="data">{{ data.product_quantity }}</span>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="name">{{ data.product_name }}</span>
+                            <div class="more">
+                                <span class="return">Return window closed on 26-Oct-2021</span>
+                                <span class="prise">₹{{ data.order_total }}</span>
+                                <button class="buy-again">By it again</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <button class="data">Write a product review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

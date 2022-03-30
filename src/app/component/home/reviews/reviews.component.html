@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="review-form-container">
+        <div class="review-title-container">
+            <span class="title">Review this product</span>
+            <span class="desc">Share your thoughts with other customers</span>
+        </div>
+        <form class="review-form" [formGroup]="reviewForm">
+            <textarea cols="100" rows="4" class="review-text" formControlName="content"></textarea>
+            <button class="add-review" (click)="onAddReview(reviewForm.controls.content.value)">Submit</button>
+        </form>
+    </div>
+
+    <div class="display-comment-container">
+        <span class="title" *ngIf="reviews?.length == 0">Be the first one to add a review</span>
+        <span class="title" *ngIf="reviews?.length != 0">Here are the most resent reviews</span>
+        <div class="comment-card" *ngFor="let review of reviews">
+            <div class="user-name-container">
+                <div class="name-container">
+                    <img src="assets/icons/avatar.png" alt="" class="avatar">
+                    <span class="user-name">{{ review.first_name }}</span>
+                </div>
+                <div class="edit-container">
+                    <span class="edit" *ngIf="review.user_id === userId">Edit review</span>
+                </div>
+            </div>
+            <span class="content">&nbsp;&nbsp;&nbsp;{{ review.reviews_text }} </span>
+            <div class="edit-delete-container">
+                <span class="show" (click)="onClickShowReplays(review.review_id)" *ngIf="!showReplay">Show
+                    replays</span>
+                <form class="replay-form" [formGroup]="replayForm">
+                    <textarea cols="60" rows="1" formControlName="content" *ngIf="!addReplay"></textarea>
+                    <button class="submit-replay"
+                        (click)="onAddReplay(review.review_id, replayForm.controls.content.value)"
+                        *ngIf="!addReplay">Replay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

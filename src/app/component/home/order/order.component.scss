@@ -1,0 +1,297 @@
+@import "../../../../assets/SCSS/variables";
+.container {
+  height: 92vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: $primary-space-unit;
+  padding: $tertiary-space-unit * 2 $tertiary-space-unit * 6
+  $tertiary-space-unit * 4 $tertiary-space-unit * 6;
+  .nav-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: $primary-space-unit;
+    margin-bottom: $primary-space-unit * 2;
+    .title {
+      width: 100%;
+      display: flex;
+      gap: $primary-space-unit;
+      text-transform: capitalize;
+      font-size: $font-primary;
+      font-weight: $font-light;
+      margin-bottom: $primary-space-unit * 2;
+      .account {
+        color: $primary-font-color;
+      }
+      .account:hover {
+        cursor: pointer;
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .your-order {
+        color: $tertiary;
+      }
+    }
+
+    .order-title-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $secondary-space-unit;
+      .order-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: $font-second-heading * 2;
+        font-weight: $font-semi-bold;
+        color: $primary-font-color;
+      }
+      .search-container {
+        display: flex;
+        align-items: center;
+        gap: $primary-space-unit;
+        .search-input,
+        .search-button {
+          width: $tertiary-space-unit * 9;
+          height: $tertiary-space-unit + 5;
+          padding: 0 $primary-space-unit 0 $primary-space-unit;
+          display: flex;
+          align-items: center;
+          font-size: $font-tertiary;
+          border: 1px solid $grey;
+          border-radius: $primary-space-unit;
+          .search-input::placeholder {
+            color: $grey;
+            font-size: $font-tertiary;
+          }
+        }
+        .search-button {
+          width: fit-content;
+          background-color: $primary;
+          color: $tertiary-font-color;
+        }
+      }
+    }
+  }
+  .sub-nav {
+    .nav-items-contaner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $tertiary-space-unit;
+      padding: 0 0 0 $primary-space-unit;
+      border-bottom: 1px solid $grey;
+      .item {
+        cursor: pointer;
+        font-size: $font-primary;
+        font-weight: $font-semi-bold;
+        padding: 0 0 $primary-space-unit $primary-space-unit;
+        border-bottom: 4px solid transparent;
+      }
+      .item:hover {
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .active {
+        color: $tertiary;
+        padding: 0 0 $primary-space-unit $primary-space-unit;
+        border-bottom: 4px solid $tertiary;
+      }
+    }
+  }
+  .content-container {
+    width: 100%;
+    // .order-card-container {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: flex-start;
+    //   justify-content: flex-start;
+    //   padding: $primary-space-unit * 2;
+    //   .order-card {
+    //     width: 100%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: flex-start;
+    //     justify-content: flex-start;
+    //     border: 1px solid $grey;
+    //     border-radius: $primary-space-unit;
+    //     .order-header {
+    //       width: 100%;
+    //       padding: $primary-space-unit;
+    //       display: flex;
+    //       align-items: center;
+    //       justify-content: space-between;
+    //       border-bottom: 1px solid $grey;
+    //       background-color: $primary-background;
+    //       .header-content-container {
+    //         display: flex;
+    //         align-items: flex-start;
+    //         justify-content: flex-start;
+    //         gap: $primary-space-unit * 2;
+    //         .order-date,
+    //         .order-total,
+    //         .order-address {
+    //           padding: $primary-space-unit;
+    //           display: flex;
+    //           flex-direction: column;
+    //           align-items: flex-start;
+    //           gap: $primary-space-unit - 4;
+    //           .data {
+    //             color: $primary-font-color;
+    //             font-size: $font-primary;
+    //           }
+    //           .data-1 {
+    //             font-size: $font-secondary;
+    //           }
+    //           .address-popover {
+    //             cursor: pointer;
+    //             text-transform: uppercase;
+    //             font-weight: $font-semi-bold;
+    //           }
+    //           .address-popover:hover {
+    //             color: $tertiary;
+    //             text-decoration: underline;
+    //           }
+    //         }
+    //       }
+    //       .order-details-container {
+    //         display: flex;
+    //         flex-direction: column;
+    //         align-items: flex-end;
+    //         justify-content: flex-end;
+    //         gap: $primary-space-unit - 4;
+    //         .order-id {
+    //           padding: 0 $primary-space-unit 0 $primary-space-unit;
+    //           font-size: $font-tertiary;
+    //         }
+    //         .billing-container {
+    //           display: flex;
+    //           align-items: center;
+    //           justify-content: space-evenly;
+    //           gap: $primary-space-unit - 5;
+    //           .details {
+    //             cursor: pointer;
+    //             padding: 0 $primary-space-unit 0 $primary-space-unit;
+    //             font-weight: $font-semi-bold;
+    //             font-size: $font-primary;
+    //           }
+    //           .details:hover {
+    //             color: $tertiary;
+    //             text-decoration: underline;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     .order-content {
+    //       width: 100%;
+    //       display: flex;
+    //       flex-direction: column;
+    //       align-items: flex-start;
+    //       justify-content: flex-start;
+    //       button {
+    //         cursor: pointer;
+    //         width: $tertiary-space-unit * 13;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         padding: $primary-space-unit - 3;
+    //         font-size: $font-secondary;
+    //         background-color: $tertiary-border-color;
+    //         border: 1px solid $grey;
+    //         border-radius: $primary-space-unit;
+    //         box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+    //       }
+    //       .set-1 {
+    //         width: 100%;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: space-between;
+    //         padding: $primary-space-unit * 2;
+    //         .date {
+    //           font-size: $font-second-heading;
+    //           font-weight: $font-semi-bold;
+    //         }
+    //       }
+    //       .set-2 {
+    //         width: 100%;
+    //         height: 210px;
+    //         display: flex;
+    //         align-items: flex-start;
+    //         justify-content: space-between;
+    //         border-bottom: 1px solid $grey;
+    //         .set-1 {
+    //           width: 100%;
+    //           height: 100%;
+    //           display: flex;
+    //           align-items: flex-start;
+    //           justify-content: flex-start;
+    //           .product-img-container {
+    //             padding-left: $primary-space-unit * 2;
+    //             display: flex;
+    //             align-items: flex-start;
+    //             justify-content: flex-start;
+    //             .product-image {
+    //               width: 200px;
+    //               height: auto;
+    //             }
+    //           }
+    //           .product-details-container {
+    //             height: 100%;
+    //             display: flex;
+    //             flex-direction: column;
+    //             align-items: baseline;
+    //             justify-content: baseline;
+    //             gap: $primary-space-unit;
+    //             padding: $primary-space-unit * 2;
+    //             padding-left: $tertiary-space-unit * 2;
+    //             padding-top: 0px;
+    //             .name {
+    //               cursor: pointer;
+    //               text-transform: uppercase;
+    //               font-size: $font-primary;
+    //               font-weight: $font-semi-bold;
+    //             }
+    //             .name:hover{
+    //               color: $tertiary;
+    //               text-decoration: underline;
+    //             }
+    //             .buy-again{
+    //               width: fit-content;
+    //               padding: $primary-space-unit;
+    //               box-shadow: none;
+    //               background-color: $secondary;
+    //               color: $primary-border-color;
+    //             }
+    //             .buy-again:hover{
+    //               background-color: $secondary-dark-shade;
+    //             }
+    //           }
+    //         }
+    //         .set-2 {
+    //           width: 100%;
+    //           display: flex;
+    //           align-items: center;
+    //           justify-content: flex-end;
+    //           padding: $primary-space-unit * 2;
+    //           padding-top: 0px;
+    //           .seller-side {
+    //             display: flex;
+    //             flex-direction: column;
+    //             align-items: flex-end;
+    //             justify-content: flex-end;
+    //             gap: $primary-space-unit;
+    //           }
+    //         }
+    //       }
+    //       .set-3{
+    //         padding: $primary-space-unit * 2;
+    //         .archive{
+    //           font-size: $font-primary;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}

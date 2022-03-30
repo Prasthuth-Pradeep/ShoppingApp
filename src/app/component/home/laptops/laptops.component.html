@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="side-nav">
+        <div class="nav-lists">
+            <div class="set">
+                <div class="list-title">
+                    <span class="title">Brands</span>
+                </div>
+                <div class="list-content" >
+                    <span class="item">Acer</span>
+                    <span class="item">Apple</span>
+                    <span class="item">Asus</span>
+                    <span class="item">Lenovo</span>
+                </div>
+            </div>
+            <div class="set">
+                <div class="list-title">
+                    <span class="title">Price</span>
+                </div>
+                <div class="list-content">
+                    <span class="item">20,000 - 50,000</span>
+                    <span class="item">50,000 - 70,000 </span>
+                    <span class="item">70,000 - 1,00,000 </span>
+                    <span class="item">1,00,000 - Above</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="products-container" >
+        <div class="products-card-container">
+            <div class="product-card"*ngFor="let product of products;">
+                <div class="product-img-container" [routerLink]="[product.product_id]" >
+                    <img [src]="product.product_photo_url" alt="">
+                </div>
+                <div class="product-title-container">
+                        <span class="title">{{ product.product_name }}</span>
+                </div>
+                <div class="rate-container">
+                        <span class="rate">MRP: &#8377;{{ product.mrp }}.00</span>
+                </div>
+                <div class="button-container" >
+                    <button class="to-cart-button" (click)="onAddCart(product.product_id)">Add to cart</button>
+                    <button class="order-now-button" (click)="onOrderNow(product.product_id)">Order now</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

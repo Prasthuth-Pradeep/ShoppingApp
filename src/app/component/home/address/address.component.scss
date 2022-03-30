@@ -1,0 +1,165 @@
+@import "../../../../assets/SCSS/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $primary-space-unit;
+  padding: $tertiary-space-unit * 2 $tertiary-space-unit * 2
+    $tertiary-space-unit * 4 $tertiary-space-unit * 6;
+  .nav-titles {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $primary-space-unit;
+    margin-bottom: $primary-space-unit * 2;
+    .title {
+      display: flex;
+      gap: $primary-space-unit;
+      text-transform: capitalize;
+      font-size: $font-primary;
+      font-weight: $font-light;
+      .account {
+        color: $primary-font-color;
+      }
+      .account:hover {
+        cursor: pointer;
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .address {
+        color: $tertiary;
+      }
+    }
+  }
+  .address-title-container {
+    margin-bottom: $secondary-space-unit * 2;
+    .address-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: $font-second-heading * 2;
+      font-weight: $font-semi-bold;
+      color: $primary-font-color;
+    }
+  }
+  .address-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .add-address-container,
+    .address-list,
+    .other-address-container {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $primary-space-unit - 5;
+      padding: $primary-space-unit;
+      margin-left: $primary-space-unit;
+      margin-bottom: $primary-space-unit;
+      border: 1px dashed $primary-font-color;
+      border-radius: $primary-space-unit + 5;
+      width: $tertiary-space-unit * 19;
+      height: $tertiary-space-unit * 15;
+      .plus {
+        font-size: $font-heading * 4;
+        font-weight: 100;
+        color: $grey;
+      }
+      .text {
+        font-size: $font-primary;
+        color: $primary-font-color;
+      }
+    }
+    .address-list,
+    .other-address-container {
+      cursor: default;
+      justify-content: flex-start;
+      border: 1px solid $grey;
+      padding: 0px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+      .default-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: $primary-space-unit * 2;
+        border-bottom: 1px solid $grey;
+        .default {
+          font-size: $font-primary;
+          color: $primary-font-color;
+        }
+      }
+      .address {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: $primary-space-unit * 2;
+        .set-1,
+        .set-3 {
+          display: flex;
+          flex-direction: column;
+          .name {
+            font-weight: $font-semi-bold;
+            text-transform: uppercase;
+          }
+          .detail {
+            margin-bottom: $primary-space-unit - 5;
+            text-transform: capitalize;
+          }
+        }
+        .set-2 {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: $primary-space-unit - 5;
+          .detail {
+            margin-bottom: $primary-space-unit - 5;
+            text-transform: capitalize;
+          }
+        }
+        .set-4 {
+          padding-top: $primary-space-unit - 5;
+          margin-bottom: $secondary-space-unit * 2;
+          .instruction {
+            cursor: pointer;
+            color: $primary-dark-shade;
+          }
+          .instruction:hover {
+            text-decoration: underline;
+            color: $tertiary;
+          }
+        }
+      }
+      .button-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: $primary-space-unit;
+        padding: $primary-space-unit * 2;
+        .btn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          color: $primary-dark-shade;
+        }
+        .btn:hover {
+          text-decoration: underline;
+          color: $tertiary;
+        }
+      }
+    }
+    .other-address-container {
+      padding-top: $secondary-space-unit * 4;
+      .address {
+        .set-4 {
+          padding-top: $secondary-space-unit;
+          margin-bottom: $secondary-space-unit * 2;
+        }
+      }
+    }
+  }
+}

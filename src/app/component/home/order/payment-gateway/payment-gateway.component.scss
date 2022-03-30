@@ -1,0 +1,145 @@
+@import "../../../../../assets/SCSS/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $tertiary-space-unit;
+  padding: 0px $tertiary-space-unit * 8 0px $tertiary-space-unit * 8;
+  .track-bar {
+    display: flex;
+    gap: $secondary-space-unit * 2;
+    padding: $secondary-space-unit * 2 0px $tertiary-space-unit * 2
+      $primary-space-unit;
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .brand-name {
+        font-size: $font-heading;
+        font-weight: $font-bold;
+        color: $primary-dark-shade;
+      }
+    }
+    .track-path {
+      display: flex;
+      flex-direction: column;
+      margin-top: $primary-space-unit - 5;
+      gap: $primary-space-unit - 2;
+      text-transform: uppercase;
+      .progress-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .bar {
+          width: 500px;
+          height: 2px;
+          border: none;
+          background-color: $grey;
+
+          position: relative;
+          .coverage {
+            width: 160px;
+            height: 2px;
+            border: none;
+            background-color: $tertiary;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            position: relative;
+            .icon {
+              font-size: $secondary-space-unit;
+              color: $tertiary;
+              font-weight: $font-bold;
+
+              position: absolute;
+              right: -7px;
+              top: calc(100% - 25px);
+            }
+          }
+        }
+      }
+      .progress-bar-place-order {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .bar {
+          width: 500px;
+          height: 2px;
+          border: none;
+          background-color: $grey;
+
+          position: relative;
+          .coverage {
+            width: 290px;
+            height: 2px;
+            border: none;
+            background-color: $tertiary;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            position: relative;
+            .icon {
+              font-size: $secondary-space-unit;
+              color: $tertiary;
+              font-weight: $font-bold;
+
+              position: absolute;
+              right: -7px;
+              top: calc(100% - 25px);
+            }
+          }
+        }
+      }
+      .progress-bar-complete-payement {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .bar {
+          width: 500px;
+          height: 2px;
+          border: none;
+          background-color: $grey;
+
+          position: relative;
+          .coverage {
+            width: 500px;
+            height: 2px;
+            border: none;
+            background-color: $tertiary;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            position: relative;
+            .icon {
+              font-size: $secondary-space-unit;
+              color: $tertiary;
+              font-weight: $font-bold;
+
+              position: absolute;
+              right: -7px;
+              top: calc(100% - 25px);
+            }
+          }
+        }
+      }
+      .progress-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+          font-size: $font-tertiary;
+          font-weight: $font-semi-bold;
+          color: $tertiary-dark-shade;
+        }
+      }
+    }
+  }
+  .data-container {
+    display: flex;
+    flex-direction: column;
+    gap: $secondary-space-unit;
+  }
+}

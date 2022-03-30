@@ -1,0 +1,40 @@
+@import "../../../../assets/SCSS/variables";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: $tertiary-space-unit * 2 $tertiary-space-unit * 6 $tertiary-space-unit $tertiary-space-unit * 6;
+    gap: $tertiary-space-unit;
+    .title-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        align-items: center;
+        padding: $primary-space-unit * 2;
+        .title{
+            font-size:$font-second-heading * 2;
+            font-weight: $font-bold;
+        }
+    }
+    .option-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap:$secondary-space-unit * 2;
+        .option{
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: $primary-space-unit * 2;
+            height: $tertiary-space-unit * 6;
+            width: $tertiary-space-unit * 20;
+            padding: $primary-space-unit * 2;
+            border: .5px solid $primary-light-shade;
+            img{
+                width: $tertiary-space-unit * 6;
+            }
+        }
+    }
+}

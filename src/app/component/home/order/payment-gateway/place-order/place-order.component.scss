@@ -1,0 +1,295 @@
+@import "../../../../../../assets/SCSS/variables";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: $primary-space-unit;
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .title {
+      font-size: $font-primary * 2;
+    }
+  }
+  .sub-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: $secondary-space-unit * 2;
+    .set-one {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $secondary-space-unit;
+      .set-one-td {
+        width: 100%;
+        .address-container {
+          width: 100%;
+          display: flex;
+          gap: $secondary-space-unit * 2;
+          padding: $primary-space-unit * 2;
+          border: 1px solid $grey;
+          .address {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .title {
+              display: flex;
+              gap: $primary-space-unit;
+              font-size: $font-secondary;
+              font-weight: $font-semi-bold;
+              color: $primary-font-color;
+              margin-bottom: $primary-space-unit;
+              a {
+                cursor: pointer;
+                font-size: $font-tertiary;
+                font-weight: $font-light;
+                color: $primary;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
+            }
+            .data {
+              font-size: $font-secondary;
+              color: $primary-font-color;
+            }
+            .spcl {
+              text-transform: uppercase;
+            }
+          }
+        }
+        .payment-method {
+          display: flex;
+          flex-direction: column;
+          padding-right: $primary-space-unit * 2;
+          .title {
+            display: flex;
+            gap: $primary-space-unit;
+            font-size: $font-secondary;
+            font-weight: $font-semi-bold;
+            color: $primary-font-color;
+            margin-bottom: $primary-space-unit;
+            a {
+              cursor: pointer;
+              font-size: $font-tertiary;
+              font-weight: $font-light;
+              color: $primary;
+            }
+            a:hover {
+              text-decoration: underline;
+            }
+          }
+          .data {
+            font-size: $font-secondary;
+            color: $primary-font-color;
+          }
+        }
+      }
+      .product-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: $tertiary-space-unit;
+        padding: $primary-space-unit * 2;
+        border: 1px solid $grey;
+        .product-title-container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .title {
+            font-size: $font-title;
+            color: $color-success;
+            font-weight: $font-semi-bold;
+          }
+        }
+        .details-container {
+          display: flex;
+          gap: $tertiary-space-unit * 3;
+          .image-container {
+            width: 250px;
+            img {
+              width: 220px;
+            }
+          }
+          .details {
+            display: flex;
+            flex-direction: column;
+            gap: $primary-space-unit * 2;
+            .name {
+              font-size: $font-title;
+              font-weight: $font-semi-bold;
+            }
+            .data {
+              select {
+                border: none;
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .set-two {
+      display: flex;
+      flex-direction: column;
+      gap: $primary-space-unit;
+      .prise-container {
+        padding: $primary-space-unit * 2;
+        border: 1px solid $grey;
+        display: flex;
+        flex-direction: column;
+        gap: $primary-space-unit;
+        .confirm {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: $primary-space-unit;
+          width: 100%;
+          background-color: $secondary;
+          border-radius: $primary-space-unit - 5;
+          font-size: $font-primary;
+        }
+        .order {
+          display: flex;
+          flex-direction: column;
+          gap: $primary-space-unit - 5;
+          .title {
+            font-size: $font-primary;
+            font-weight: $font-semi-bold;
+          }
+          .summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .data {
+              font-size: $font-secondary;
+              font-weight: $font-light;
+            }
+          }
+        }
+        .order-total {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: $primary-space-unit;
+          padding-bottom: $primary-space-unit;
+          border-top: 1px solid $tertiary;
+          border-bottom: 1px solid $tertiary;
+          .total {
+            font-size: $font-title;
+            font-weight: $font-bold;
+          }
+        }
+      }
+    }
+  }
+
+  .address-list-popover {
+    .cover {
+      position: fixed;
+      top: 0%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: $primary-space-unit - 5;
+      background-color: $primary-background;
+      height: fit-content;
+      max-width: 80%;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $primary-light-shade;
+        .title {
+          padding: $primary-space-unit;
+          font-size: $font-title;
+          font-weight: $font-semi-bold;
+        }
+        .close {
+          cursor: pointer;
+          font-size: $font-secondary;
+          padding-right: $primary-space-unit;
+        }
+      }
+      .address-lists-container {
+        padding: $primary-space-unit;
+        display: flex;
+        flex-wrap: wrap;
+        .address-card {
+          width: 300px;
+          display: flex;
+          flex-direction: column;
+          gap: $primary-space-unit - 8;
+          margin-right: $primary-space-unit;
+          margin-bottom: $primary-space-unit;
+          .data {
+            font-size: $font-secondary;
+          }
+          .spcl {
+            text-transform: uppercase;
+          }
+          .name {
+            font-weight: $font-bold;
+          }
+          .submit {
+            margin-top: $primary-space-unit;
+            padding: $primary-space-unit;
+            font-size: $font-primary;
+            border-radius: $primary-space-unit - 5;
+            border: none;
+            background-color: $secondary-light-shade;
+          }
+          .ad {
+            font-size: $font-primary + 2;
+            cursor: pointer;
+          }
+          .delivery {
+            border: 1px solid $secondary-light-shade;
+            background-color: $tertiary-background;
+            span {
+              font-size: $font-secondary - 1;
+              font-weight: $font-bold;
+              color: $color-success;
+            }
+          }
+        }
+        .add-address-container {
+          display: flex;
+          flex-direction: column;
+          gap: $primary-space-unit;
+          padding-right: $primary-space-unit;
+          .plus-container {
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $grey;
+            .plus {
+              font-size: $font-heading * 2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

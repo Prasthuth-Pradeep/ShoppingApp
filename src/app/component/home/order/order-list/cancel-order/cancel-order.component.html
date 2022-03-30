@@ -1,0 +1,12 @@
+<div class="data" *ngFor="let data of ordersDetails;">
+    <img [src]="data.product_photo_url" alt="product.png">
+    <div class="details">
+        <p>All items shown in the image will be cancelled and cannot be reverted back. You will also have
+            the
+            option to refuse the delivery at doorstep if you do not wish to cancel now.
+        </p>
+        <div class="button-container">
+            <button class="ok" (click)="onCancelOrder(data.order_id)">OK</button>
+        </div>
+    </div>
+</div>

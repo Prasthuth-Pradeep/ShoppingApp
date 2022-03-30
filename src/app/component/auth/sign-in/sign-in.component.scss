@@ -1,0 +1,136 @@
+@import "../../../../assets/SCSS/variables";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  .brand-name {
+    margin-top: -$primary-space-unit;
+    margin-bottom: $secondary-space-unit * 2;
+    .name {
+      cursor: pointer;
+      font-size: $font-heading;
+      font-weight: $font-bold;
+      color: $secondary-font-color;
+    }
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: $primary-space-unit * 2;
+    width: $font-regular;
+    .sign-in-form {
+      border-radius: 5px;
+      width: $font-light;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $secondary-border-color;
+      padding-top: 0px;
+      padding: $tertiary-space-unit;
+      padding-bottom: $primary-space-unit * 2;
+      .sign-in {
+        width: 100%;
+        padding-top: 0px;
+        padding: $secondary-space-unit;
+        font-size: $font-title * 2;
+        margin-top: -$primary-space-unit;
+        text-align: center;
+      }
+      .label {
+        display: inline;
+        padding: $secondary-space-unit;
+        padding-bottom: 5px;
+        font-weight: $font-semi-bold;
+        font-size: $font-primary;
+      }
+      .input {
+        display: inline;
+        padding: $primary-space-unit;
+        border: 1px solid $secondary-border-color;
+        outline: none;
+        margin-left: $primary-space-unit;
+        margin-right: $primary-space-unit;
+        border-radius: 5px;
+      }
+      .password-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        padding-right: $primary-space-unit;
+        input {
+          width: 100%;
+          margin-right: 0px;
+          border-right: 1px solid transparent;
+          border-radius: 5px 0px 0px 5px;
+        }
+        button {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          width: fit-content;
+          height: fit-content;
+          padding: $primary-space-unit;
+          border: none;
+          background-color: $secondary-background;
+          border: 1px solid $secondary-border-color;
+          border-radius: 0px 5px 5px 0px;
+          img {
+            height: $secondary-space-unit;
+            width: $tertiary-space-unit;
+            border-radius: 0px 5px 5px 0px;
+          }
+        }
+      }
+      .submit-button {
+        cursor: pointer;
+        margin-top: $primary-space-unit * 2;
+        font-size: $font-primary;
+        display: inline-block;
+        padding: $primary-space-unit;
+        align-items: center;
+        border: none;
+        background-color: $tertiary;
+        color:$tertiary-font-color;
+        margin-left: $primary-space-unit;
+        margin-right: $primary-space-unit;
+      }
+      hr {
+        border: 1px solid $secondary-border-color;
+        margin: $primary-space-unit;
+      }
+      .forgot-password {
+        margin-top: 5px;
+        text-align: center;
+        font-size: 12px;
+        color: black;
+        text-decoration: underline;
+      }
+      .text {
+        margin-top: $primary-space-unit;
+        margin-bottom: -$primary-space-unit;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: $primary-font-color;
+      }
+      .sign-up-button {
+        cursor: pointer;
+        margin-top: $primary-space-unit * 2;
+        display: inline-block;
+        padding: $primary-space-unit;
+        align-items: center;
+        border: none;
+        background-color: $secondary-background;
+        border: 1px solid $secondary-border-color;
+        margin-left: $primary-space-unit;
+        margin-right: $primary-space-unit;
+      }
+    }
+  }
+
+}

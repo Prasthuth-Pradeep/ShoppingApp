@@ -1,0 +1,89 @@
+<div class="order-card-container" *ngFor="let data of orders;">
+    <div class="order-card" >
+        <div class="order-header">
+            <div class="header-content-container">
+                <div class="order-date">
+                    <span class="data data-1">ORDER PLACED</span>
+                    <span class="data">{{ data.order_date | date}}</span>
+                </div>
+                <div class="order-total">
+                    <span class="data data-1">Total</span>
+                    <span class="data">{{ data.order_total }}</span>
+                </div>
+                <div class="order-address">
+                    <span class="data data-1">Ship to:</span>
+                    <span class="data address-popover" (mouseover)="addressPopover(data.order_id)"
+                        (mouseout)="addressPopoverOut()">{{ data.full_name }}
+                        <div class="popover" *ngIf="addressHover && data.order_id === popupOrderId">
+                            <span class="data name">{{ data.full_name }}</span>
+                            <span class="data">{{ data.residency_name }}</span>
+                            <span class="data">{{ data.area }}</span>
+                            <span class="data">{{ data.city }}, {{ data.state }} {{ data.pin_code }}</span>
+                            <span class="data">{{ data.country }}</span>
+                            <span class="data">Phone: {{ data.mobile_number }}</span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="order-details-container">
+                <span class="order-id">ORDER #{{ data.order_id }}</span>
+                <div class="billing-container">
+                    <span class="details" (click)="onOrderDetails( data.order_id)">View order details</span>
+                    <p>|</p>
+                    <span class="details">Invoice</span>
+                </div>
+            </div>
+        </div>
+        <div class="order-content">
+            <div class="set-1">
+                <span class="date arriving" *ngIf="data.arriving_in > 0">Arriving in {{ data.arriving_in }} days</span>
+                <span class="date arriving" *ngIf="data.arriving_in === 0">Arriving today</span>
+                <span class="date arrived" *ngIf="data.arriving_in < 0 && data.arriving_in != 0">Delivered</span>
+                <button class="track-package">Track package</button>
+            </div>
+            <div class="set-2">
+                <div class="set-1">
+                    <div class="product-img-container">
+                        <img [src]="data.product_photo_url" alt="product.png" class="product-image">
+                        <div class="quantity" *ngIf="data.product_quantity > 1">
+                            <span class="data">{{ data.product_quantity}}</span>
+                        </div>
+                    </div>
+                    <div class="product-details-container">
+                        <span class="name">{{ data.product_name }}</span>
+                        <button class="buy-again">Buy again</button>
+                    </div>
+                </div>
+                <div class="set-2">
+                    <div class="seller-side">
+                        <button class="seller-side-button"
+                            *ngIf="data.arriving_in > 0 || data.arriving_in === 0" (click)="onCancelOrderPopup(data.order_id)">Request cancellation</button>
+                        <button class="seller-side-button">Leave seller feedback</button>
+                        <button class="seller-side-button">Leave delivery feedback</button>
+                        <button class="seller-side-button">Write a product review</button>
+                    </div>
+                </div>
+            </div>
+            <div class="set-3">
+                <span class="archive">Archive order</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="cancel-order-popover" *ngIf="reqOrderCancel">
+        <div class="cover"></div>
+        <div class="content">
+            <nav class="nav">
+                <span class="title">Request cancellation</span>
+                <span class="x" (click)="onCancelOrderCancelPopup()">X</span>
+            </nav>
+            <div class="bg">
+              <app-cancel-order></app-cancel-order>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="nothing-to-display" *ngIf="orders?.length == 0">
+    <span>Nothing to display</span>
+  </div>

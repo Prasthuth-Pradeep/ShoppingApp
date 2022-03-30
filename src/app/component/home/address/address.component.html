@@ -1,0 +1,79 @@
+<div class="container">
+    <nav class="nav-titles">
+        <div class="title">
+            <span class="account" (click)="onUserProfile()">Your Account</span>
+            <p>&#62;</p>
+        </div>
+        <div class="title">
+            <span class="address">Your Address</span>
+        </div>
+    </nav>
+    <div class="address-title-container">
+        <span class="address-title">Your Address</span>
+    </div>
+
+    <div class="address-list-container" *ngFor="let data of defaultAddress;">
+        <div class="add-address-container" (click)="onAddAddress()">
+            <span class="plus">+</span>
+            <span class="text">Add Address</span>
+        </div>
+
+        <div class="address-list" *ngIf="data.user_id != null">
+            <div class="default-container">
+                <span class="default">Default:</span>
+            </div>
+            <div class="address">
+                <div class="set-1">
+                    <span class="detail name">{{ data.full_name }}</span>
+                    <span class="detail house">{{ data.residency_name }}</span>
+                    <span class="detail area">{{ data.area }}</span>
+                </div>
+                <div class="set-2">
+                    <span class="detail state">{{ data.city }},</span>
+                    <span class="detail pin-code">{{ data.state }},</span>
+                    <span class="detail pin-code">{{ data.pin_code }} </span>
+                </div>
+                <div class="set-3">
+                    <span class="detail country">{{ data.country}}</span>
+                    <span class="detail mob-number">Phone number: {{ data.mobile_number}}</span>
+                </div>
+                <div class="set-4">
+                    <span class="instruction">Add delivery instructions</span>
+                </div>
+            </div>
+            <div class="button-container">
+                <span class="btn">Edit</span>
+            </div>
+        </div>
+
+        <div class="other-address-list" *ngFor="let adData of address;">
+            <div class="other-address-container" *ngIf="adData.address_id != data.address_id &&  address.length != 0">
+                <div class="address">
+                    <div class="set-1">
+                        <span class="detail name">{{ adData.full_name }}</span>
+                        <span class="detail house">{{ adData.residency_name }}</span>
+                        <span class="detail area">{{ adData.area }}</span>
+                    </div>
+                    <div class="set-2">
+                        <span class="detail state">{{ adData.city }},</span>
+                        <span class="detail pin-code">{{ adData.state }},</span>
+                        <span class="detail pin-code">{{ adData.pin_code }} </span>
+                    </div>
+                    <div class="set-3">
+                        <span class="detail country">{{ adData.country}}</span>
+                        <span class="detail mob-number">Phone number: {{ adData.mobile_number}}</span>
+                    </div>
+                    <div class="set-4">
+                        <span class="instruction">Add delivery instructions</span>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="btn">Edit</button>
+                    <p>|</p>
+                    <button class="btn" (click)="onRemoveAddress(adData.address_id)">Remove</button>
+                    <p>|</p>
+                    <button class="btn" (click)="onSetDefaultAddress(adData.address_id)">Set as default</button>
+                </div>
+            </div>
+        </div>
+    </div>

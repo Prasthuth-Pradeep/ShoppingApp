@@ -1,0 +1,58 @@
+
+<div class="container" *ngFor="let item of product">
+
+    <div class="set-one">
+
+        <div class="product-image-container">
+            <img [src]="item. product_photo_url" alt="">
+            <span class="wishlist" *ngIf="like" (click)="onWishlistRemove()" >&#x2764;</span>
+            <span class="wishlist outline" *ngIf="!like" (click)="onWishlistAdd()" >&#x2661;</span>
+        </div>
+        
+        <div class="product-details-container">
+            <div class="product-details">
+                <div class="product-title">
+                    <span>{{ item.product_name }}</span>
+                </div>
+                <div class="features-container">
+                    <span class="title header">DETAILS</span><span></span>
+                    <span class="title">Type: </span><span>{{ item.type }}</span>
+                    <span class="title">Display: </span><span>{{ item.display }}</span>
+                    <span class="title">Operating System: </span><span>{{ item.os }} </span>
+                    <span class="title">CPU: </span><span>{{ item.processor }}</span>
+                    <span class="title">Storage: </span><span>{{ item.storage }}</span>
+                    <span class="title">Weight: </span><span>{{ item.weight }}kg</span>
+                    <span class="title">Color: </span><span>{{ item.color }}</span>
+                </div>
+            </div>
+            <div class="product-order">
+                <div class="order-card">
+                    <div class="title-container">
+                        <span class="title">Make Order</span>
+                    </div>
+
+                    <div class="stock-container">
+                        <span class="stock in-stock" *ngIf="item.stocks_left > 3">In Stock</span>
+                        <span class="stock one-left" *ngIf="item.stocks_left < 3 && item.stocks_left === 1">Only
+                            {{item.stocks_left}} left</span>
+                        <span class="stock out-of-stock" *ngIf="item.stocks_left === 0">Currently out of Stock</span>
+                    </div>
+
+                    <div class="address-container">
+                        <span class="address">Choose address</span>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="add-cart" (click)="onAddCart(item.product_id)">Add to cart</button>
+                        <button class="order-now" (click)="onOrderNow(item.product_id)" [disabled]="item.stocks_left === 0">Buy now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="set-two">
+        <app-reviews [product]="item.product_id"></app-reviews>
+    </div>
+</div>

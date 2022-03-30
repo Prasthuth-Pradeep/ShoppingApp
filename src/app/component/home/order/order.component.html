@@ -1,0 +1,26 @@
+<div class="container">
+    <nav class="nav-titles">
+        <div class="title">
+            <span class="account" (click)="onUserProfile()">Your Account</span>
+            <p>&#62;</p>
+            <span class="your-order">Your Order</span>
+        </div>
+        <div class="order-title-container">
+            <span class="order-title">Your Order</span>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Product name">
+                <button class="search-button">Search Orders</button>
+            </div>
+        </div>
+    </nav>
+    <div class="sub-nav">
+        <div class="nav-items-contaner">
+            <span class="item" routerLink="/home/profile/order/list" routerLinkActive="active">Order</span>
+            <span class="item" routerLink="/home/profile/order/pending-list" routerLinkActive="active">Not Yet Shipped</span>
+            <span class="item" routerLink="/home/profile/order/cancelled-list" routerLinkActive="active">Cancelled Order</span>
+        </div>
+    </div>
+    <div class="content-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

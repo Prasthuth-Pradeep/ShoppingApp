@@ -1,0 +1,104 @@
+@import "../../../../../assets/SCSS/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $primary-space-unit;
+  padding: $tertiary-space-unit * 2 $tertiary-space-unit * 6
+    $tertiary-space-unit * 4 $tertiary-space-unit * 6;
+  .nav-titles {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $primary-space-unit;
+    margin-bottom: $primary-space-unit * 2;
+    .title {
+      display: flex;
+      gap: $primary-space-unit;
+      text-transform: capitalize;
+      font-size: $font-primary;
+      font-weight: $font-light;
+      .account,
+      .address {
+        color: $primary-font-color;
+      }
+      .account:hover,
+      .address:hover {
+        cursor: pointer;
+        color: $tertiary;
+        text-decoration: underline;
+      }
+      .new-address {
+        color: $tertiary;
+      }
+    }
+  }
+  .address-title-container {
+    margin-bottom: $secondary-space-unit;
+    .address-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: $font-second-heading * 2;
+      font-weight: $font-semi-bold;
+      color: $primary-font-color;
+    }
+  }
+  .address-container {
+    width: 100%;
+    padding: $primary-space-unit - 5;
+    display: flex;
+    flex-direction: column;
+    gap: $primary-space-unit * 2;
+    align-items: center;
+    .adress-form {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: $primary-space-unit;
+      gap: $secondary-space-unit * 2;
+      .set {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        label{
+          width: 500px;
+          font-size: $font-primary;
+          font-weight: $font-regular;
+          padding: $primary-space-unit;
+        }
+        .input {
+          width: 420px;
+          font-size: $font-secondary;
+          padding: $primary-space-unit;
+          outline: none;
+          border: 1px solid $secondary-border-color;
+          border-radius: $primary-space-unit - 5;
+          background-color: $tertiary-border-color;
+          margin-bottom: $primary-space-unit;
+        }
+        input::placeholder {
+          font-size: $font-secondary;
+        }
+      }
+    }
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $primary-space-unit;
+      margin-bottom: $primary-space-unit;
+      padding: $primary-space-unit;
+      .add-btn {
+        cursor: pointer;
+        border: 1px solid $tertiary;
+        padding: $primary-space-unit;
+        border-radius: 5px;
+        font-size: $font-primary;
+        background-color: $tertiary;
+        color: $tertiary-border-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="notification-container" *ngIf="!userStatus">
+    <span class="title">Look`s lke you`re not Signed in</span>
+    <div class="button-container">
+        <button class="sign-in-btn" routerLink="/sign-in">Sign in to see your Address</button>
+    </div>
+</div>
+
+<div class="address-preview-container" *ngIf="address?.length != 0 && userStatus && !addAddress">
+    <div class="title-container">
+        <span class="main-title">Choose your location</span>
+    </div>
+    <div class="new-address-container">
+        <span class="content">Select a delivery location to see product availability and delivery options</span>
+    </div>
+    <div class="address-container" *ngFor="let data of defaultAddress">
+        <div class="default-address" *ngIf="data.user_id != null">
+            <div class="set-1">
+                <span class="data name">{{ data.full_name }},</span>
+                <span class="data">{{ data.residency_name }},</span>
+                <span class="data">{{ data.area }}</span>
+            </div>
+            <div class="set-2">
+                <span class="data">{{ data.city }},</span>
+                <span class="data">{{ data.state }},</span>
+                <span class="data">{{ data.pin_code }}</span>
+            </div>
+        </div>
+
+        <div class="other-address-container" *ngFor="let adData of address">
+            <div class="other-address" *ngIf="adData.address_id != data.address_id" (click)="onSetDefaultAddress(adData.address_id)">
+                <div class="set-1">
+                    <span class="data name">{{ adData.full_name }},</span>
+                    <span class="data">{{ adData.residency_name }},</span>
+                    <span class="data">{{ adData.area }}</span>
+                </div>
+                <div class="set-2">
+                    <span class="data">{{ adData.city }},</span>
+                    <span class="data">{{ adData.state }},</span>
+                    <span class="data">{{ adData.pin_code }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new-address-container">
+        <span class="title" (click)="onAddAddress()">Add an address or pick-up point</span>
+    </div>
+</div>
+
+<div class="notification-container" *ngIf="userStatus && address?.length == 0">
+    <span class="title">Your Address list is empty</span>
+    <div class="button-container">
+        <button class="sign-in-btn" (click)="onAddAddress()">Add an address or pick-up point</button>
+    </div>
+</div>

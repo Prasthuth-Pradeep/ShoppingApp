@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="title-container">
+        <h2 class="title">Review your order</h2>
+    </div>
+    <div class="sub-container">
+        <div class="set-one">
+            <div class="set-one-td" *ngIf="addressList?.length != 0">
+                <div class="address-container" *ngFor="let data of defaultAddress">
+                    <div class="address">
+                        <span class="title">Shipping address <a (click)="onChangeDeliveryAddress()">Change</a></span>
+                        <span class="data spcl">{{ data.full_name }}</span>
+                        <span class="data">{{ data.residency_name }}</span>
+                        <span class="data">{{ data.area }}</span>
+                        <span class="data spcl">{{ data.city }}, {{ data.state }} {{ data.pin_code}}</span>
+                        <span class="data">{{ data.country }}</span>
+                        <span class="data">Phone: {{ data.mobile_number }}</span>
+                    </div>
+                    <div class="payment-method">
+                        <div class="set-one">
+                            <span class="title">Payment method <!-- <a>Change</a> --></span>
+                        </div>
+                        <div class="set-two">
+                            <span class="data">Pay on delivery (Cash/Card)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="addressList?.length == 0">
+                <div class="address-container" *ngFor="let data of defaultAddress">
+                    <div class="address">
+                        <span class="title" style="cursor: pointer" (click)="onChangeDeliveryAddress()">Add shipping
+                            address</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" *ngFor="let data of product">
+                <div class="product-title-container">
+                    <span class="title">Delivery date: {{ data.estimated_delivery_date | date}}</span>
+                </div>
+                <div class="details-container">
+                    <div class="image-container">
+                        <img [src]="data.product_photo_url" alt="product-image">
+                    </div>
+                    <div class="details">
+                        <span class="data name">{{ data.product_name }}</span>
+                        <div *ngIf="!selected">
+                            <span class="data">₹{{ data.mrp }}.00</span>
+                        </div>
+                        <div *ngIf="selected">
+                            <span class="data" *ngFor="let total of orderTotal;">₹{{ total.total_amount }}.00</span>
+                        </div>
+                        <span class="data">Quantity:
+                            <form [formGroup]="quantityForm">
+                                <select formControlName="quantityValue">
+                                    <option *ngFor="let quantity of quantityList;" [value]="quantity">{{ quantity }}
+                                    </option>
+                                </select>
+                            </form>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="set-two">
+            <div class="prise-container" *ngFor="let data of product">
+                <button class="confirm" (click)="onOrderNow(data.estimated_delivery_date)">Place your order</button>
+                <div class="order">
+                    <div class="title">Order summary</div>
+                    <div class="summary">
+                        <span class="data">Items</span>
+                        <span class="data">₹{{ data.mrp }}.00</span>
+                    </div>
+                    <div class="summary">
+                        <span class="data">Quantity:</span>
+                        <span class="data">{{ quantity }}</span>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <span class="total">Order Total:</span>
+                    <div *ngIf="!selected">
+                        <span class="data">₹{{ data.mrp }}.00</span>
+                    </div>
+                    <div *ngIf="selected">
+                        <span class="data" *ngFor="let total of orderTotal;">₹{{ total.total_amount }}.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="address-list-popover" *ngIf="addAddressPopover">
+        <div class="cover"></div>
+        <div class="content">
+            <nav class="navbar">
+                <span class="title">Choose a shipping address</span>
+                <span class="close" (click)="onChangeDeliveryAddress()">Close</span>
+            </nav>
+            <div class="address-lists-container" *ngFor="let defAdData of defaultAddress">
+                <div class="address-card" *ngIf="addressList.length != 0">
+                    <span class="data spcl name">{{ defAdData.full_name }}</span>
+                    <span class="data">{{ defAdData.residency_name }}</span>
+                    <span class="data">{{ defAdData.area}}</span>
+                    <span class="data spcl">{{ defAdData.city }}, {{ defAdData.state }} {{ defAdData.pin_code}}</span>
+                    <span class="data">{{ defAdData.country }}</span>
+                    <button class="submit delivery"> <span>&#10003;</span> Deliver to this address</button>
+                </div>
+                    <div *ngFor="let adData of addressList">
+                        <div class="address-card" *ngIf="defAdData.address_id != adData.address_id && addressList.length > 0">
+                            <span class="data spcl name">{{ adData.full_name }}</span>
+                            <span class="data">{{ adData.residency_name }}</span>
+                            <span class="data">{{ adData.area}}</span>
+                            <span class="data spcl">{{ adData.city }}, {{ adData.state }} {{ adData.pin_code}}</span>
+                            <span class="data">{{ adData.country }}</span>
+                            <button class="submit ad" (click)="onSetDefaultAddress(adData.address_id)"> Deliver to this
+                                address</button>
+                        </div>
+                </div>
+                <div class="add-address-container">
+                    <div class="plus-container">
+                        <span class="plus">+</span>
+                    </div>
+                    <span class="text">Add new shipping address</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

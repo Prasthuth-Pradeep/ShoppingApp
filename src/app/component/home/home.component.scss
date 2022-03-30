@@ -1,0 +1,35 @@
+@import '../../../assets/SCSS/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  app-header {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+  }
+  .home-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $secondary-space-unit * 2;
+    background-color: $primary;
+    .nav-items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $primary-space-unit * 2;
+      .item {
+        color: $tertiary-font-color;
+        text-decoration: none;
+      }
+      .item:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .body-container{
+    height: 100%;
+  }
+}

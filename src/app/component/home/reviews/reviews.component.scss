@@ -1,0 +1,154 @@
+@import "../../../../assets/SCSS/variables";
+
+.container {
+  border-top: 1px solid $tertiary;
+  padding-top: $primary-space-unit;
+  .review-form-container {
+    padding: $primary-space-unit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $primary-space-unit * 2;
+    .review-title-container {
+      display: flex;
+      flex-direction: column;
+      padding-right: $primary-space-unit * 2;
+      .title {
+        margin-bottom: $primary-space-unit;
+        font-size: $font-second-heading;
+        font-weight: $font-semi-bold;
+        color: $tertiary-dark-shade;
+      }
+      .desc {
+        font-size: $font-title;
+        font-weight: $font-regular;
+      }
+    }
+    .review-form {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      .review-text {
+        padding: $primary-space-unit;
+        border: 1px solid $secondary-dark-shade;
+        border-right: none;
+        outline: none;
+      }
+      .add-review {
+        cursor: pointer;
+        display: inline-block;
+        padding: $primary-space-unit;
+        width: $tertiary-space-unit * 4;
+        background-color: $secondary-light-shade;
+        font-size: $font-primary;
+        border: 1px solid $secondary-dark-shade;
+        border-left: none;
+      }
+      .add-review:hover {
+        font-size: $font-title;
+      }
+    }
+  }
+
+  .display-comment-container {
+    width: 100%;
+    margin-top: $tertiary-space-unit * 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $secondary-space-unit * 2;
+    padding: 0px $tertiary-space-unit * 2 0px $tertiary-space-unit * 2;
+    margin-bottom: 40px;
+    .title {
+      font-size: $font-second-heading;
+      font-weight: $font-semi-bold;
+      color: $tertiary-dark-shade;
+    }
+    .comment-card {
+      width: $font-semi-bold * 2px;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid $tertiary-dark-shade;
+      .user-name-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $primary-space-unit;
+        width: 100%;
+        border-top: 1px solid $tertiary-dark-shade;
+        padding: $primary-space-unit;
+        background-color: $primary-light-shade;
+        .name-container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: $primary-space-unit;
+          .avatar {
+            width: auto;
+            height: $tertiary-space-unit;
+          }
+          .user-name {
+            font-size: $font-primary;
+          }
+        }
+        .edit-container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .edit {
+            justify-self: flex-end;
+            font-size: $font-secondary;
+          }
+        }
+      }
+      .content {
+        padding: $primary-space-unit;
+        font-size: $font-primary;
+      }
+      .edit-delete-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .show {
+          cursor: pointer;
+          margin-left: $primary-space-unit * 2;
+          font-size: $font-tertiary;
+          padding: $primary-space-unit - 2;
+          border-radius: $primary-space-unit;
+          border: 1px solid $secondary-dark-shade;
+        }
+
+        .replay-form {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin: $primary-space-unit;
+          textarea {
+            padding: $primary-space-unit - 2;
+            border: 1px solid $secondary-dark-shade;
+            border-right: none;
+            border-radius: $primary-space-unit 0px 0px $primary-space-unit;
+            outline: none;
+          }
+          .add-replay{
+            width: 100%;
+          }
+          .submit-replay {
+            cursor: pointer;
+            height: inherit;
+            width: auto;
+            display: inline-block;
+            padding: $primary-space-unit - 2;
+            border: 1px solid $secondary-dark-shade;
+            border-left: none;
+            border-radius: 0px $primary-space-unit $primary-space-unit 0px;
+            background-color: $secondary-light-shade;
+            font-size: $font-tertiary;
+          }
+        }
+      }
+
+    }
+  }
+}

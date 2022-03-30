@@ -1,0 +1,16 @@
+@import "../../../../assets/SCSS/variables";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: $primary-space-unit * 2;
+    gap: $primary-space-unit;
+    border: 1px solid $primary-border-color;
+    .nav-link-container{
+        display: flex;
+        flex-direction: column;
+        gap:$primary-space-unit;
+    }
+}

@@ -1,0 +1,111 @@
+@import "../../../../../assets/SCSS/variables";
+
+.notification-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $primary-space-unit + 5;
+  gap: $primary-space-unit;
+  .title {
+    font-size: $font-title;
+    padding: $primary-space-unit;
+    font-weight: $font-semi-bold;
+    color: $tertiary;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $primary-space-unit;
+    .sign-in-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-title;
+      padding: $primary-space-unit;
+      font-weight: $font-semi-bold;
+      background-color: $tertiary;
+      color: $tertiary-font-color;
+      border: none;
+      border-radius: $primary-space-unit;
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+    }
+    .sign-in-btn:hover {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+.address-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: $primary-space-unit;
+  padding: $secondary-space-unit + 5;
+  background-color: $primary-background;
+  .title-container {
+    width: 100%;
+    padding-bottom: $primary-space-unit;
+    border-bottom: 1px solid $primary-border-color;
+    .main-title {
+      font-size: $font-title;
+      font-weight: $font-semi-bold;
+    }
+  }
+
+  .new-address-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: $primary-space-unit;
+    .content {
+      font-size: $font-tertiary;
+      font-weight: $font-light;
+      color: $primary-border-color;
+    }
+    .title {
+      cursor: pointer;
+      text-align: center;
+      font-size: $font-primary;
+      font-weight: $font-semi-bold;
+      color: $tertiary;
+    }
+    .title:hover {
+      text-decoration: underline;
+    }
+  }
+  .address-container,
+  .other-address-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .default-address,
+    .other-address {
+      cursor: pointer;
+      width: 100%;
+      border: 1px solid $grey;
+      padding: $primary-space-unit;
+      .set-1,
+      .set-2 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px;
+        height: fit-content;
+        .name {
+          text-transform: uppercase;
+          font-weight: $font-bold;
+        }
+      }
+    }
+    .default-address {
+      cursor:default;
+      border: 1px solid $tertiary;
+    }
+    .other-address:hover{
+      border: 1px solid $tertiary;
+    }
+  }
+}

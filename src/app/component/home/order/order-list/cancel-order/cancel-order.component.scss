@@ -1,0 +1,42 @@
+@import "../../../../../../assets/SCSS/variables";
+
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $primary-space-unit;
+  padding: $primary-space-unit;
+  background-color: $tertiary-font-color;
+  img {
+    height: auto;
+    width: 200px;
+  }
+  .details {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $primary-space-unit * 2;
+    justify-content: space-between;
+    margin-left: $primary-space-unit;
+    p {
+      font-size: $font-secondary;
+    }
+    .button-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: $primary-space-unit * 2;
+      padding: $primary-space-unit;
+      background-color: $tertiary-font-color;
+      button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $primary-space-unit - 3;
+      }
+    }
+  }
+}
