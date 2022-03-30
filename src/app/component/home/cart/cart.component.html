@@ -8,6 +8,15 @@
     </div>
 </div>
 
+<div class="container" *ngIf="userStatus && cartItems?.length == 0">
+    <!-- <div class="button-container">  -->
+        <span class="title">Your Shopping Cart is empty</span>
+        <div class="buttons">
+            <button class="sign-in" (click)="onShopNow()">Shop now</button>
+        </div>
+    <!-- </div> -->
+</div>
+
 <div class="user-cart-container" *ngIf="userStatus">
     <div class="set-title">
         <div class="addressbar" *ngFor="let data of defaultAddress;">

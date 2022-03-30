@@ -78,6 +78,10 @@ export class CartComponent implements OnInit {
     }
   }
 
+  onShopNow() {
+    this.sharedService.clickBackHome();
+  }
+  
   onRemoveCartItem(id:number){
     this.purchaseService.removeCartItem(id).subscribe((data) => {
       console.log(data);
