@@ -17,7 +17,7 @@ export class UserRoleGuard implements CanActivate {
       if(this.authService.userRole === 'costumer' || this.authService.userRole === 'guest' ){
         return true;
       } else {
-        return this.router.navigate(['/home/deals']);
+        return this.router.navigate(['/home/products/deals']);
       }
   }
 }

@@ -26,7 +26,7 @@
                 <!-- DROPDOWN -->
                 <div class="dropdown-content" *ngIf="dropdown" #dropdownRef>
                     <div *ngFor="let data of categories">
-                        <a class="dropdown-link" [routerLink]="[data.category_id, data.category_name]">{{ data.category_name
+                        <a class="dropdown-link" (click)="onClickProducts(data.category_id, data.category_name)">{{ data.category_name
                             }}</a>
                     </div>
                 </div>

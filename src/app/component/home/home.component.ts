@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
 
   onHome() {
     this.sharedService.sendHomeClassName(this.homeClass);
-    this.router.navigate(['/home/deals'])
+    this.router.navigate(['/home/products/deals'])
   }
 
   ngOnDestroy(): void {

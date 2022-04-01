@@ -20,7 +20,7 @@ export class UserDashboardComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.userStatusSubscribtion = this.authService.isUserStatus().subscribe((data) => {
       if(data == false){
-        this.router.navigate(['/home/deals'])
+        this.router.navigate(['/home/products/deals'])
       }
     });
   }

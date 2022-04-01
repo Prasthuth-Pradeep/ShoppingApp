@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/service/auth.service';
 import { PurchaseService } from 'src/app/service/purchase.service';
-import { IProductDetails } from '../../../../models/product';
-import { ProductService } from '../../../../service/product.service';
+import { IProductDetails } from '../../../../../models/product';
+import { ProductService } from '../../../../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';

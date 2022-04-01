@@ -84,6 +84,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  onClickProducts(productId:number, categoryName:string){
+    this.router.navigate(['/home/products', productId, categoryName])
+  }
+
   cartItem() {
     if (this.userStatus === true) {
       this.purchaseService.getCart(this.userId).subscribe((data) => {

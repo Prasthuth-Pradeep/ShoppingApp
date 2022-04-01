@@ -48,7 +48,7 @@ export class AuthService {
         } 
         
         if (this.userRole === 'costumer'){
-          this.router.navigate(["home/deals"])
+          this.router.navigate(["/home/products/deals"])
         }
       })
     )

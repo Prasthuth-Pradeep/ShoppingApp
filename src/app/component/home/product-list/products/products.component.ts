@@ -1,10 +1,8 @@
 import { SharedService } from 'src/app/shared/shared.service';
-import { IAddress } from '../../../models/user';
-import { UserService } from '../../../service/user.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { IUser } from 'src/app/models/user';
-import { IProduct } from '../../../models/product';
-import { ProductService } from '../../../service/product.service';
+import { IProduct } from '../../../../models/product';
+import { ProductService } from '../../../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';

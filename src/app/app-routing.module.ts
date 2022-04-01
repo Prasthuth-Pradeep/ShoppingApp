@@ -1,4 +1,5 @@
-import { ShowroomComponent } from './component/home/showroom/showroom.component';
+import { ProductListComponent } from './component/home/product-list/product-list.component';
+import { ShowroomComponent } from './component/home/product-list/showroom/showroom.component';
 import { OrderDetailsComponent } from './component/home/order/order-details/order-details.component';
 import { PlaceOrderComponent } from './component/home/order/payment-gateway/place-order/place-order.component';
 import { PendingOrderListComponent } from './component/home/order/pending-order-list/pending-order-list.component';
@@ -24,8 +25,8 @@ import { UserRoleGuard } from './guard/user-role.guard';
 import { OrderListComponent } from './component/home/order/order-list/order-list.component';
 import { CancelledOrderListComponent } from './component/home/order/cancelled-order-list/cancelled-order-list.component';
 import { DeliveryAndPayementComponent } from './component/home/order/payment-gateway/delivery-and-payement/delivery-and-payement.component';
-import { ProductsComponent } from './component/home/products/products.component';
-import { ProductDetailsComponent } from './component/home/products/product-details/product-details.component';
+import { ProductsComponent } from './component/home/product-list/products/products.component';
+import { ProductDetailsComponent } from './component/home/product-list/products/product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -34,9 +35,11 @@ const routes: Routes = [
 
   {
     path: 'home', component: HomeComponent, canActivate: [UserRoleGuard], children: [
-      { path: 'deals', component: ShowroomComponent },
-      { path: ':id/:product-name', component: ProductsComponent, },
-      { path: ':id/:product-name/:id', component: ProductDetailsComponent },
+      { path: 'products', component: ProductListComponent, children: [
+        { path: 'deals', component: ShowroomComponent },
+        { path: ':id/:product-name', component: ProductsComponent, },
+        { path: ':id/:product-name/:id', component: ProductDetailsComponent },
+      ] },
       { path: 'cart', component: CartComponent },
       { path: 'profile', component: UserDashboardComponent },
       {
@@ -67,8 +70,8 @@ const routes: Routes = [
       { path: 'order-control', component: OrderControlComponent },]
   },
 
-  { path: '**', redirectTo: 'home/deals' },
-  { path: '', redirectTo: 'home/deals', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home/products/deals' },
+  { path: '', redirectTo: 'home/products/deals', pathMatch: 'full' },
 ];
 
 @NgModule({

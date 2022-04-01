@@ -33,9 +33,10 @@ import { DatePipe } from '@angular/common';
 import { CancelOrderComponent } from './component/home/order/order-list/cancel-order/cancel-order.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { OrderDetailsComponent } from './component/home/order/order-details/order-details.component';
-import { ShowroomComponent } from './component/home/showroom/showroom.component';
-import { ProductDetailsComponent } from './component/home/products/product-details/product-details.component';
-import { ProductsComponent } from './component/home/products/products.component';
+import { ShowroomComponent } from './component/home/product-list/showroom/showroom.component';
+import { ProductDetailsComponent } from './component/home/product-list/products/product-details/product-details.component';
+import { ProductsComponent } from './component/home/product-list/products/products.component';
+import { ProductListComponent } from './component/home/product-list/product-list.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { ProductsComponent } from './component/home/products/products.component'
     CancelOrderComponent,
     OrderDetailsComponent,
     ShowroomComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
