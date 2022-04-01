@@ -1,23 +1,22 @@
 <div class="container" *ngIf="!userStatus">
     <div class="button-container">
-        <span class="title">Your My Shopping Cart is empty</span>
+        <span class="title">Your Shopping Cart is empty</span>
         <div class="buttons">
             <button class="sign-in" routerLink="/sign-in">Sign in to your account</button>
             <button class="sign-up" routerLink="/sign-up">Sign up now</button>
         </div>
     </div>
 </div>
-
 <div class="container" *ngIf="userStatus && cartItems?.length == 0">
-    <!-- <div class="button-container">  -->
+    <div class="button-container">
         <span class="title">Your Shopping Cart is empty</span>
         <div class="buttons">
             <button class="sign-in" (click)="onShopNow()">Shop now</button>
         </div>
-    <!-- </div> -->
+    </div>
 </div>
 
-<div class="user-cart-container" *ngIf="userStatus">
+<div class="user-cart-container" *ngIf="userStatus && cartItems?.length != 0">
     <div class="set-title">
         <div class="addressbar" *ngFor="let data of defaultAddress;">
             <span class="address">Deliver to : {{ data.full_name }} - {{ data.area }} {{data.pin_code }}</span>
