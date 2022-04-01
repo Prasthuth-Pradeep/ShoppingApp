@@ -8,9 +8,7 @@ import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
 import { SignInComponent } from './component/auth/sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
-import { ProductsComponent } from './component/home/laptops/laptops.component';
 import { HeaderComponent } from './component/home/header/header.component';
-import { LaptopDetailsComponent } from './component/home/laptops/laptop-details/laptop-details.component';
 import { ReviewsComponent } from './component/home/reviews/reviews.component';
 import { ReplayComponent } from './component/home/reviews/replay/replay.component';
 import { CartComponent } from './component/home/cart/cart.component';
@@ -36,6 +34,7 @@ import { CancelOrderComponent } from './component/home/order/order-list/cancel-o
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { OrderDetailsComponent } from './component/home/order/order-details/order-details.component';
 import { ShowroomComponent } from './component/home/showroom/showroom.component';
+import { ProductsComponent } from './component/home/products/laptops.component';
 
 
 @NgModule({
@@ -46,7 +45,7 @@ import { ShowroomComponent } from './component/home/showroom/showroom.component'
     HomeComponent,
     ProductsComponent,
     HeaderComponent,
-    LaptopDetailsComponent,
+    OrderDetailsComponent,
     ReviewsComponent,
     ReplayComponent,
     CartComponent,

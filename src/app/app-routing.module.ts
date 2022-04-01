@@ -12,8 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './component/auth/sign-up/sign-up.component';
 import { SignInComponent } from './component/auth/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
-import { ProductsComponent } from './component/home/laptops/laptops.component';
-import { LaptopDetailsComponent } from './component/home/laptops/laptop-details/laptop-details.component';
 import { OrderComponent } from './component/home/order/order.component';
 import { WishListComponent } from './component/home/wish-list/wish-list.component';
 import { UserDashboardComponent } from './component/home/user-dashboard/user-dashboard.component';
@@ -26,6 +24,7 @@ import { UserRoleGuard } from './guard/user-role.guard';
 import { OrderListComponent } from './component/home/order/order-list/order-list.component';
 import { CancelledOrderListComponent } from './component/home/order/cancelled-order-list/cancelled-order-list.component';
 import { DeliveryAndPayementComponent } from './component/home/order/payment-gateway/delivery-and-payement/delivery-and-payement.component';
+import { ProductsComponent } from './component/home/products/laptops.component';
 
 
 const routes: Routes = [
@@ -36,7 +35,7 @@ const routes: Routes = [
     path: 'home', component: HomeComponent, canActivate: [UserRoleGuard], children: [
       { path: 'deals', component: ShowroomComponent },
       { path: 'products', component: ProductsComponent, },
-      { path: 'product/:id', component: LaptopDetailsComponent },
+      { path: 'product/:id', component: OrderDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'profile', component: UserDashboardComponent },
       {
