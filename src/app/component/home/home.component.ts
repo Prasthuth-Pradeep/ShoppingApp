@@ -36,11 +36,6 @@ export class HomeComponent implements OnInit {
         this.onHome();
       });
 
-    this.clickEventLaptopsSubscription =
-      this.sharedService.isLaptop.subscribe(() => {
-        this.onProducts();
-      });
-
     this.clickEventUserProfileSubscription =
       this.sharedService.isUserProfile.subscribe(() => {
         this.onUserProfile();
@@ -70,11 +65,6 @@ export class HomeComponent implements OnInit {
       this.sharedService.isOrderDetails.subscribe(() => {
         this.onOrderDetails();
       });
-  }
-
-  onProducts() {
-    this.sharedService.sendHomeClassName(this.homeClass);
-    this.router.navigate(['/home/products']);
   }
 
   onCart() {

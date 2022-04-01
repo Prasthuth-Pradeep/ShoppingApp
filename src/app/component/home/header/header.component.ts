@@ -117,15 +117,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onClickProducts( categoryId: number) {
-    this.productService.sendCategoryId(categoryId);
-    this.sharedService.clickProducts();
-  }
-
-  onClickLaptops() {
-    this.sharedService.clickProducts();
-  }
-
   onClickCart() {
     this.sharedService.clickCart();
   }

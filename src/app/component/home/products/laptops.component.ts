@@ -6,7 +6,7 @@ import { IUser } from 'src/app/models/user';
 import { IProduct } from './../../../models/product';
 import { ProductService } from './../../../service/product.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PurchaseService } from 'src/app/service/purchase.service';
 
@@ -18,6 +18,7 @@ import { PurchaseService } from 'src/app/service/purchase.service';
 export class ProductsComponent implements OnInit {
 
   products: IProduct[] = [];
+  categoryId!:number;
   user!: IUser;
   userStatus!: boolean;
   userId:any;
@@ -29,11 +30,16 @@ export class ProductsComponent implements OnInit {
               private authService: AuthService,
               private purchaseService:PurchaseService,
               private sharedService: SharedService,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   async ngOnInit(): Promise<void> {
-    this.sharedService.sendHomeClassName(this.homeClass);
-    this.products = await this.productService.getLaptops().toPromise();
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.categoryId = +params['id'];
+      this.productService.getLaptops().subscribe((data) => {
+        this.products = data;
+      });
+    })
     this.userSubscribtion = this.authService.isUserId().subscribe((data) => {
       this.userId = data;
     });

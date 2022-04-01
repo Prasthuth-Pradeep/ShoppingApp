@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, canActivate: [UserRoleGuard], children: [
       { path: 'deals', component: ShowroomComponent },
-      { path: 'products', component: ProductsComponent, },
+      { path: ':id/:product-name', component: ProductsComponent, },
       { path: 'product/:id', component: OrderDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'profile', component: UserDashboardComponent },

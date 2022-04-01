@@ -103,12 +103,4 @@ export class SharedService {
     this.isBackHome.next();
   }
 
-  // Dropdowm
-  get isLaptop():Observable<any>{
-    return this.isClickLaptop.asObservable();
-  }
-  public clickProducts(){
-    this.isClickLaptop.next();
-  }
-
 }

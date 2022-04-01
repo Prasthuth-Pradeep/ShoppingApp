@@ -10,16 +10,8 @@ import { IBrand, ICategory, IProduct, IProductDetails } from '../models/product'
 export class ProductService {
 
   private url = "http://localhost:3000";
-  private isCategoryId = new BehaviorSubject<number>(0);
   
   constructor(private http: HttpClient) { }
-
-  public sendCategoryId(CategoryId: number) {
-    this.isCategoryId.next(CategoryId);
-  }
-  get categoryId(): Observable<number> {
-    return this.isCategoryId.asObservable();
-  }
 
   getCategory(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(`${this.url}/category`);
