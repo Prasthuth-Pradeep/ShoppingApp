@@ -15,7 +15,8 @@ export interface IProduct {
 
 export interface IBrand {
     brand_id: number,
-    brand_name: string
+    brand_name: string,
+    category_of_products: ICategory[]
 }
 
 export interface ICategory {

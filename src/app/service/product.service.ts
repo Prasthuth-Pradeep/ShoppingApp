@@ -13,6 +13,10 @@ export class ProductService {
   
   constructor(private http: HttpClient) { }
 
+  getBrands(): Observable<IBrand[]> {
+    return this.http.get<IBrand[]>(`${this.url}/brands`);
+  }
+
   getCategory(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(`${this.url}/category`);
   }

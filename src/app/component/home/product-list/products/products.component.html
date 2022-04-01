@@ -6,11 +6,15 @@
                 <div class="list-title">
                     <span class="title">Brands</span>
                 </div>
-                <div class="list-content" >
-                    <span class="item">Acer</span>
-                    <span class="item">Apple</span>
-                    <span class="item">Asus</span>
-                    <span class="item">Lenovo</span>
+                <div class="list-content">
+                    <span class="item" (click)="onAll()">ALL</span>
+                    <div *ngFor="let brand of brands">
+                        <div class="brand-list" *ngFor="let data of brand.category_of_products">
+                            <span class="item" *ngIf="data.category_id == categoryId"
+                                (click)="onFilter(brand.brand_name)">{{
+                                brand?.brand_name}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="set">
@@ -26,24 +30,26 @@
             </div>
         </div>
     </div>
-    
-    <div class="products-container" >
+
+    <div class="products-container">
         <div class="products-card-container">
-            <div class="product-card"*ngFor="let product of products;">
-                <div class="product-img-container" [routerLink]="[product.product_id]" >
-                    <img [src]="product.product_photo_url" alt="">
-                </div>
-                <div class="product-title-container">
+            <div class="product-card" *ngFor="let product of filteredProducts;">
+                <div *ngIf="categoryId == product.categories_id">
+                    <div class="product-img-container" [routerLink]="[product.product_id]">
+                        <img [src]="product.product_photo_url" alt="">
+                    </div>
+                    <div class="product-title-container">
                         <span class="title">{{ product.product_name }}</span>
-                </div>
-                <div class="rate-container">
+                    </div>
+                    <div class="rate-container">
                         <span class="rate">MRP: &#8377;{{ product.mrp }}.00</span>
-                </div>
-                <div class="button-container" >
-                    <button class="to-cart-button" (click)="onAddCart(product.product_id)">Add to cart</button>
-                    <button class="order-now-button" (click)="onOrderNow(product.product_id)">Order now</button>
+                    </div>
+                    <div class="button-container">
+                        <button class="to-cart-button" (click)="onAddCart(product.product_id)">Add to cart</button>
+                        <button class="order-now-button" (click)="onOrderNow(product.product_id)">Order now</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>

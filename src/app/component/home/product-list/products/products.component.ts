@@ -1,7 +1,7 @@
 import { SharedService } from 'src/app/shared/shared.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { IUser } from 'src/app/models/user';
-import { IProduct } from '../../../../models/product';
+import { IBrand, IProduct } from '../../../../models/product';
 import { ProductService } from '../../../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -15,12 +15,15 @@ import { PurchaseService } from 'src/app/service/purchase.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products: IProduct[] = [];
+  products!: IProduct[];
+  filteredProducts: IProduct[] = [];
   categoryId!:number;
+  brands!: IBrand[];
   user!: IUser;
   userStatus!: boolean;
   userId:any;
   homeClass: string = "home-navbar";
+  private recieveCategoryIdSubscribtion = new Subscription();
   private userSubscribtion = new Subscription();
   private userStatusSubscribtion = new Subscription();
 
@@ -38,6 +41,7 @@ export class ProductsComponent implements OnInit {
         this.products = data;
       });
     })
+    this.brands = await this.productService.getBrands().toPromise();
     this.userSubscribtion = this.authService.isUserId().subscribe((data) => {
       this.userId = data;
     });
@@ -45,11 +49,19 @@ export class ProductsComponent implements OnInit {
       this.userStatus = data;
     });
     
+    this.onAll();
   }
 
-  ngOnDestroy(): void {
-    this.userSubscribtion.unsubscribe();
-    this.userStatusSubscribtion.unsubscribe();
+  onAll(){
+    this.filteredProducts = this.products;
+  }
+
+  onFilter(brand_name: string) {
+    this.filteredProducts = this.products.filter((el: any) => {
+      if (el.brand_name == brand_name ) {
+        return el
+      }
+    })
   }
 
   onAddCart(productId: number) {
@@ -77,4 +89,11 @@ export class ProductsComponent implements OnInit {
       this.router.navigate(['/sign-in']);
     }
   }
+
+  ngOnDestroy(): void {
+    this.recieveCategoryIdSubscribtion.unsubscribe();
+    this.userSubscribtion.unsubscribe();
+    this.userStatusSubscribtion.unsubscribe();
+  }
+  
 }
