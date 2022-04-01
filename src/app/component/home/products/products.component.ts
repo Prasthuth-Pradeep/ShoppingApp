@@ -1,10 +1,10 @@
 import { SharedService } from 'src/app/shared/shared.service';
-import { IAddress } from './../../../models/user';
-import { UserService } from './../../../service/user.service';
+import { IAddress } from '../../../models/user';
+import { UserService } from '../../../service/user.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { IUser } from 'src/app/models/user';
-import { IProduct } from './../../../models/product';
-import { ProductService } from './../../../service/product.service';
+import { IProduct } from '../../../models/product';
+import { ProductService } from '../../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,8 +12,8 @@ import { PurchaseService } from 'src/app/service/purchase.service';
 
 @Component({
   selector: 'app-laptops',
-  templateUrl: './laptops.component.html',
-  styleUrls: ['./laptops.component.scss']
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
 

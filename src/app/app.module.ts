@@ -34,7 +34,8 @@ import { CancelOrderComponent } from './component/home/order/order-list/cancel-o
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { OrderDetailsComponent } from './component/home/order/order-details/order-details.component';
 import { ShowroomComponent } from './component/home/showroom/showroom.component';
-import { ProductsComponent } from './component/home/products/laptops.component';
+import { ProductDetailsComponent } from './component/home/products/product-details/product-details.component';
+import { ProductsComponent } from './component/home/products/products.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ProductsComponent } from './component/home/products/laptops.component';
     SignInComponent,
     HomeComponent,
     ProductsComponent,
+    ProductDetailsComponent,
     HeaderComponent,
     OrderDetailsComponent,
     ReviewsComponent,

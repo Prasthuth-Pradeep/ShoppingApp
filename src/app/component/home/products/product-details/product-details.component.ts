@@ -8,11 +8,10 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-laptop-details',
-  templateUrl: './laptop-details.component.html',
-  styleUrls: ['./laptop-details.component.scss']
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.scss']
 })
-export class LaptopDetailsComponent implements OnInit {
-
+export class ProductDetailsComponent implements OnInit {
 
   userStatus!: boolean;
   id!: number;
