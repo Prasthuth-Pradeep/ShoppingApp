@@ -3,14 +3,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  .home-navbar,
-  .cart-navbar {
+  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: $primary-space-unit * 2;
     height: $secondary-space-unit * 4;
     font-weight: $font-semi-bold;
+    background-color: $primary;
     .brand-name {
       padding: 8px;
       cursor: pointer;
@@ -36,6 +36,7 @@
           border: none;
           align-items: center;
           justify-content: space-evenly;
+          background-color: $primary-light-shade;
           padding: $primary-space-unit;
           padding-right: 0px;
           padding-left: 0px;
@@ -69,8 +70,10 @@
             text-decoration: none;
             font-size: $font-secondary;
             font-weight: $font-regular;
+            color: $primary-font-color;
           }
           .dropdown-link:hover {
+            color: $secondary-font-color;
             text-decoration: underline;
           }
         }
@@ -83,7 +86,7 @@
         font-size: $font-primary;
         border: none;
         outline: none;
-        // background-color: $primary-background;
+        background-color: $primary-background;
       }
       .search-input::placeholder {
         color: $primary-font-color;
@@ -97,7 +100,7 @@
         justify-content: center;
         padding: $primary-space-unit;
         height: $primary-space-unit * 4;
-        // background-color: $tertiary;
+        background-color: $tertiary;
         color: $tertiary-font-color;
         font-size: $font-secondary;
         border: none;
@@ -142,58 +145,6 @@
       .profile:hover,
       .address-name:hover {
         border: 1px solid $tertiary-font-color;
-      }
-    }
-  }
-
-  .home-navbar {
-    background-color: $primary;
-    .searchbar {
-      .dropdown {
-        .categories {
-          background-color: $primary-light-shade;
-        }
-        .dropdown-content {
-          background-color: $primary-background;
-          .dropdown-link {
-            color: $primary-font-color;
-          }
-          .dropdown-link:hover {
-            color: $secondary-font-color;
-          }
-        }
-      }
-      .search-input {
-        background-color: $primary-background;
-      }
-      .search-btn {
-        background-color: $tertiary;
-      }
-    }
-  }
-
-  .cart-navbar {
-    background-color: $tertiary;
-    .searchbar {
-      .dropdown {
-        .categories {
-          background-color: $secondary-light-shade;
-        }
-        .dropdown-content {
-          .dropdown-link {
-            color: $tertiary;
-          }
-          .dropdown-link:hover {
-            color: $primary-border-color;
-          }
-        }
-      }
-      .search-input {
-        background-color: $secondary-background;
-      }
-      .search-btn {
-        background-color: $secondary;
-        color: $tertiary-border-color;
       }
     }
   }

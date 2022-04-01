@@ -3,7 +3,7 @@
 .container {
   height: 92.3vh;
   width: 100vw;
-  background-color: $tertiary-border-color;
+  background-color: $primary;
   .button-container {
     background-image: url("../../../../assets/whallpapers/cart.png");
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: $tertiary;
+    background-color: $primary;
     .title {
       font-size: $font-second-heading * 2;
       font-weight: $font-bold;

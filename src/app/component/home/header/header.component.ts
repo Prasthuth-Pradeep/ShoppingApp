@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
 
   dropdownClass!: string;
-  navbar!: string;
   dropdown: boolean = false;
   addressPopOver: boolean = false;
   userStatus!: boolean;
@@ -65,16 +64,6 @@ export class HeaderComponent implements OnInit {
     this.userStatusSubscribtion = this.authService.isUserStatus().subscribe((data) => {
       this.userStatus = data;
     });
-
-    this.cartClassNameSubscribtion = this.sharedService.receiveCartClassName.subscribe((data) => {
-      if (this.userStatus === false) {
-        this.navbar = data;
-      }
-    })
-
-    this.homeClassNameSubscribtion = this.sharedService.receiveHomeClassName.subscribe((data) => {
-      this.navbar = data;
-    })
 
     this.clickEventAddressPopoverCloseSubscription =
       this.sharedService.isAddressPopoverClose.subscribe(() => {

@@ -20,7 +20,6 @@ export class CartComponent implements OnInit {
   cartTotal!: any;
   cartItems!: ICart[];
   defaultAddress!: IAddress[];
-  cartClass: string = "cart-navbar";
   private userStatusSubscribtion = new Subscription();
   private userSubscribtion = new Subscription();
   private cartTotalSubscribtion = new Subscription();
@@ -33,8 +32,6 @@ export class CartComponent implements OnInit {
     private router: Router) { }
 
   async ngOnInit(): Promise<void> {
-
-    this.sharedService.sendCartClassName(this.cartClass);
     this.addressRefreshSubscribtion = this.userService.refreshNotification.subscribe(() => {
       this.getUserDefaultAddress();
     })
