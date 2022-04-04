@@ -24,6 +24,12 @@ export interface ICategory {
     category_name: string
 }
 
+export interface IWishlist {
+    wishlist_id: number,
+    user_id: number,
+    product_id: number,
+    wishlist_flag:number
+}
 
 export interface ICategory {
     category_id: number,

@@ -1,14 +1,15 @@
-
 <div class="container" *ngFor="let item of product">
 
     <div class="set-one">
 
         <div class="product-image-container">
             <img [src]="item. product_photo_url" alt="">
-            <span class="wishlist" *ngIf="like" (click)="onWishlistRemove()" >&#x2764;</span>
-            <span class="wishlist outline" *ngIf="!like" (click)="onWishlistAdd()" >&#x2661;</span>
+            <div *ngFor="let data of wishlist">
+                <span class="wishlist" *ngIf="data.wishlist_flag === 1" (click)="onWishlistRemove(data.wishlist_id)">&#x2764;</span>
+            </div>
+            <span class="wishlist outline" *ngIf="!like && wishlist?.length != 1" (click)="onWishlistAdd()">&#x2661;</span>
         </div>
-        
+
         <div class="product-details-container">
             <div class="product-details">
                 <div class="product-title">
@@ -44,7 +45,8 @@
 
                     <div class="button-container">
                         <button class="add-cart" (click)="onAddCart(item.product_id)">Add to cart</button>
-                        <button class="order-now" (click)="onOrderNow(item.product_id)" [disabled]="item.stocks_left === 0">Buy now</button>
+                        <button class="order-now" (click)="onOrderNow(item.product_id)"
+                            [disabled]="item.stocks_left === 0">Buy now</button>
                     </div>
                 </div>
             </div>

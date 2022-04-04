@@ -1,3 +1,4 @@
+import { IWishlist } from './../../../../../models/product';
 import { AuthService } from 'src/app/service/auth.service';
 import { PurchaseService } from 'src/app/service/purchase.service';
 import { IProductDetails } from '../../../../../models/product';
@@ -18,8 +19,10 @@ export class ProductDetailsComponent implements OnInit {
   product!: IProductDetails[];
   like: boolean = false;
   userId: any;
+  wishlist!: IWishlist[];
   private userSubscribtion = new Subscription();
   private userStatusSubscribtion = new Subscription();
+  private wishlistRefreshSubscribtion = new Subscription();
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductService,
@@ -28,32 +31,62 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.wishlistRefreshSubscribtion = this.productService.refreshNotification.subscribe(() => {
+      this.getWishlist();
+    })
+    
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.productService.getLaptopById(this.id).subscribe((data) => {
         this.product = data;
       });
     })
+
     this.userSubscribtion = this.authService.isUserId().subscribe((data) => {
       this.userId = data;
     });
     this.userStatusSubscribtion = this.authService.isUserStatus().subscribe((data) => {
       this.userStatus = data;
     });
+
+    this.getWishlist();
   }
 
-  onWishlistRemove() {
+  getWishlist(){
     if (this.userStatus === true) {
-      this.like = false;
+      let wishlistData: any = {
+        userId: this.userId,
+        productId: this.id
+      }
+      this.productService.getWishlist(wishlistData).subscribe((data) => {
+        this.wishlist = data;
+      })
+    }
+  }
+
+  onWishlistAdd() {
+    if (this.userStatus === true) {
+      let wishlistData: any = {
+        userId: this.userId,
+        productId: this.id
+      }
+      this.productService.addWishlist(wishlistData).subscribe((data) => {
+        console.log(data)
+      })
     }
     if (this.userStatus === false) {
       this.router.navigate(['/sign-in']);
     }
   }
 
-  onWishlistAdd() {
+  onWishlistRemove(id:number) {
     if (this.userStatus === true) {
-      this.like = true;
+      let wishlistData: any = {
+        wishlistId : id
+      }
+      this.productService.removeWishlist(wishlistData).subscribe((data) => {
+        console.log(data);
+      })
     }
     if (this.userStatus === false) {
       this.router.navigate(['/sign-in']);
@@ -75,13 +108,12 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  onOrderNow(productId: number){
-    if(this.userStatus === true ){
+  onOrderNow(productId: number) {
+    if (this.userStatus === true) {
       this.purchaseService.sendProductId(productId);
-      
       this.router.navigate(['/order-payment/delivery&payement']);
-      }
-    if ( this.userStatus === false){
+    }
+    if (this.userStatus === false) {
       this.router.navigate(['/sign-in']);
     }
   }
@@ -89,6 +121,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnDestroy(): void {
     this.userSubscribtion.unsubscribe();
     this.userStatusSubscribtion.unsubscribe();
+    this.wishlistRefreshSubscribtion.unsubscribe();
   }
 
 }
