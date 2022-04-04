@@ -23,7 +23,7 @@ export class PlaceOrderComponent implements OnInit {
   cartId!: number
   addressList!: IAddress[];
   defaultAddress!: IAddress[];
-  product!: IProduct[];
+  product: IProduct[] = [];
   quantityForm: FormGroup;
   orderTotal!: IOrderTotal[];
   quantity: number = 1;
@@ -129,6 +129,7 @@ export class PlaceOrderComponent implements OnInit {
       payment: this.paymentType,
       deliveryDate: fltDate
     }
+
     this.purchaseService.sendOrderDetails(orderData).subscribe((data) => {
       console.log(data)
       this.message = data;
@@ -136,6 +137,13 @@ export class PlaceOrderComponent implements OnInit {
         this.purchaseService.removeCartItem(this.cartId).subscribe((data) => {
           console.log(data);
         });
+        let productQuantityData: any = {
+          productQuantity: this.quantity,
+          productId: this.productId
+        }
+        this.productService.updateProductQuantity(productQuantityData).subscribe((data) => {
+          console.log(data);
+        })
         this.router.navigate(['home/profile/order/list'])
       }
 

@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -44,6 +45,10 @@ export class ProductService {
 
   getWishlist(wishlistData: any): Observable<IWishlist[]> {
     return this.http.post<IWishlist[]>(`${this.url}/wishlist/fetch-wishlist`, wishlistData);
+  }
+
+  updateProductQuantity(productQuantityData: any): Observable<any[]>{
+    return this.http.put<any[]>(`${this.url}/products/update-quantity`, productQuantityData);
   }
 
   getProductById(id: number): Observable<IProduct[]> {
