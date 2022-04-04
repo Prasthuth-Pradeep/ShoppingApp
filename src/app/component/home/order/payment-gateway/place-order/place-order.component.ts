@@ -1,4 +1,3 @@
-import { SharedService } from 'src/app/shared/shared.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -45,7 +44,6 @@ export class PlaceOrderComponent implements OnInit {
     private productService: ProductService,
     private datePipe: DatePipe,
     private router: Router,
-    private sharedService: SharedService,
     private quantityFormBuilder: FormBuilder) {
     this.quantityForm = this.quantityFormBuilder.group({
       quantityValue: [1]
@@ -150,5 +148,6 @@ export class PlaceOrderComponent implements OnInit {
     this.userSubscribtion.unsubscribe();
     this.addressRefreshSubscribtion.unsubscribe();
     this.productSubscribtion.unsubscribe();
+    this.recieveCartIdSubscribtion.unsubscribe();
   }
 }
