@@ -86,7 +86,7 @@
         cursor: pointer;
         font-size: $font-primary;
         font-weight: $font-semi-bold;
-        padding: 0 0 $primary-space-unit $primary-space-unit;
+        padding: 0 $primary-space-unit $primary-space-unit $primary-space-unit;
         border-bottom: 4px solid transparent;
       }
       .item:hover {
@@ -95,7 +95,7 @@
       }
       .active {
         color: $tertiary;
-        padding: 0 0 $primary-space-unit $primary-space-unit;
+        padding: 0 $primary-space-unit $primary-space-unit $primary-space-unit;
         border-bottom: 4px solid $tertiary;
       }
     }
